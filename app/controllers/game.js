@@ -1,4 +1,4 @@
-vvar util = require('util'),
+var util = require('util'),
     c = require('irc-colors'),
     _ = require('underscore'),
     Cards = require('../controllers/cards'),
