@@ -5,6 +5,7 @@ module.exports = function(app) {
     app.cmd('start', '', games.start);
     app.cmd('stop', 'o', games.stop);
     app.cmd('join', '', games.join);
+    app.cmd('j', '', games.join);
     app.cmd('quit', '', games.quit);
     app.cmd('cards', '', games.cards);
     app.cmd('play', '', games.play);
@@ -15,4 +16,5 @@ module.exports = function(app) {
     app.cmd('pause', '', games.pause);
     app.cmd('resume', '', games.resume);
     app.cmd('pick', '', games.pick);
+    app.cmd('p', '', games.pick)
 };
