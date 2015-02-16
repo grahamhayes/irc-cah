@@ -1,4 +1,4 @@
-var util = require('util'),
+vvar util = require('util'),
     c = require('irc-colors'),
     _ = require('underscore'),
     Cards = require('../controllers/cards'),
@@ -206,10 +206,10 @@ var Game = function Game(channel, client, config, cmdArgs) {
 
         // check that there's enough players in the game
         if (self.players.length < 3) {
-            self.say('Not enough players to start a round (need at least 3). Waiting for others to join. Stopping in 3 minutes if not enough players.');
+            self.say('Not enough players to start a round (need at least 3). Waiting for others to join. Stopping in 6 minutes if not enough players.');
             self.state = STATES.WAITING;
             // stop game if not enough pleyers in 3 minutes
-            self.stopTimeout = setTimeout(self.stop, 3 * 60 * 1000);
+            self.stopTimeout = setTimeout(self.stop, 6 * 60 * 1000);
             return false;
         }
         self.round++;
@@ -357,13 +357,13 @@ var Game = function Game(channel, client, config, cmdArgs) {
                     try {
                         playerCards = player.cards.pickCards(cards);
                     } catch (error) {
-                        self.notice(player.nick, 'Invalid card index');
+                        self.pm(player.nick, 'Invalid card index');
                         return false;
                     }
                     self.table.answer.push(playerCards);
                     player.hasPlayed = true;
                     player.inactiveRounds = 0;
-                    self.notice(player.nick, 'You played: ' + self.getFullEntry(self.table.question, playerCards.getCards()));
+                    self.pm(player.nick, 'You played: ' + self.getFullEntry(self.table.question, playerCards.getCards()));
                     // show entries if all players have played
                     if (self.checkAllPlayed()) {
                         self.showEntries();
@@ -382,7 +382,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
     self.turnTimerCheck = function () {
         // check the time
         var now = new Date();
-        var timeLimit = 3 * 60 * 1000;
+        var timeLimit = 6 * 60 * 1000;
         var roundElapsed = (now.getTime() - self.roundStarted.getTime());
         console.log('Round elapsed:', roundElapsed, now.getTime(), self.roundStarted.getTime());
         if (roundElapsed >= timeLimit) {
@@ -452,7 +452,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
     self.winnerTimerCheck = function () {
         // check the time
         var now = new Date();
-        var timeLimit = 2 * 60 * 1000;
+        var timeLimit = 6 * 60 * 1000;
         var roundElapsed = (now.getTime() - self.roundStarted.getTime());
         console.log('Winner selection elapsed:', roundElapsed, now.getTime(), self.roundStarted.getTime());
         if (roundElapsed >= timeLimit) {
@@ -668,7 +668,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
             _.each(player.cards.getCards(), function (card, index) {
                 cards += c.bold(' [' + index + '] ') + card.value;
             }, this);
-            self.notice(player.nick, 'Your cards are:' + cards);
+            self.pm(player.nick, 'Your cards are:' + cards);
         }
     };
 

@@ -1,4 +1,3 @@
-// import modules
 var _ = require('underscore'),
     Game = require('./game'),
     Player = require('../models/player'),
