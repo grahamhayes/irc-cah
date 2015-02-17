@@ -42,25 +42,23 @@ if (!fs.existsSync(__dirname + '/../config/cards/Custom_q.json')) {
 
 // All card file paths. You can comment out the ones you don't want to use.
 var cardFiles = {
-    OfficialBaseSetQuestions: __dirname + '/../config/cards/OfficialBaseSet_q.json',
-    OfficialBaseSetAmericaQuestions: __dirname + '/../config/cards/OfficialBaseSetAmerica_q.json',
-    Official2ndExpansionQuestions: __dirname + '/../config/cards/Official2ndExpansion_q.json',
-    Official2ndExpansionAmericaQuestions: __dirname + '/../config/cards/Official2ndExpansionAmerica_q.json',
-    Official3rdExpansionQuestions: __dirname + '/../config/cards/Official3rdExpansion_q.json',
-    Official3rdExpansionAmericaQuestions: __dirname + '/../config/cards/Official3rdExpansionAmerica_q.json',
-    OfficialCanadianExpansionQuestions: __dirname + '/../config/cards/OfficialCanadianExpansion_q.json',
-    OfficialChristmasExpansionQuestions: __dirname + '/../config/cards/OfficialChristmasExpansion_q.json',
+    OfficialBaseSetQuestions: __dirname + '/../config/cards/OfficialBaseSet_questions.json',
+    Official1stExpansionQuestions: __dirname + '/../config/cards/Official1stExpansion_questions.json'
+    Official2ndExpansionQuestions: __dirname + '/../config/cards/Official2ndExpansion_questions.json',
+    Official3rdExpansionQuestions: __dirname + '/../config/cards/Official3rdExpansion_questions.json',
+    Official2012HolidayExpansionQuestions: __dirname + '/../config/cards/Official2012HolidayExpansion_questions.json',
+    Official2013HolidayExpansionQuestions: __dirname + '/../config/cards/Official2013HolidayExpansion_questions.json',
+    Official90sNostalgiaExpansionQuestions: __dirname + '/../config/cards/90sNostalgiaSet_questions.json'
     BGGQuestions: __dirname + '/../config/cards/BGG_q.json',
     BGGAmericaQuestions: __dirname + '/../config/cards/BGGAmerica_q.json',
     CustomQuestions: __dirname + '/../config/cards/Custom_q.json',
-    OfficialBaseSetAnswers: __dirname + '/../config/cards/OfficialBaseSet_a.json',
-    OfficialBaseSetAmericaAnswers: __dirname + '/../config/cards/OfficialBaseSetAmerica_a.json',
-    Official2ndExpansionAnswers: __dirname + '/../config/cards/Official2ndExpansion_a.json',
-    Official2ndExpansionAmericaAnswers: __dirname + '/../config/cards/Official2ndExpansionAmerica_a.json',
-    Official3rdExpansionAnswers: __dirname + '/../config/cards/Official3rdExpansion_a.json',
-    Official3rdExpansionAmericaAnswers: __dirname + '/../config/cards/Official3rdExpansionAmerica_a.json',
-    OfficialCanadianExpansionAnswers: __dirname + '/../config/cards/OfficialCanadianExpansion_a.json',
-    OfficialChristmasExpansionAnswers: __dirname + '/../config/cards/OfficialChristmasExpansion_a.json',
+    OfficialBaseSetAnswers: __dirname + '/../config/cards/OfficialBaseSet_answers.json',
+    Official1stExpansionAnswers: __dirname + '/../config/cards/Official1stExpansion_answers.json',
+    Official2ndExpansionAnswers: __dirname + '/../config/cards/Official2ndExpansion_answers.json',
+    Official3rdExpansionAnswers: __dirname + '/../config/cards/Official3rdExpansion_answers.json',
+    Official2012HolidayExpansionAnswers: __dirname + '/../config/cards/Official2012HolidayExpansion_answers.json',
+    Official2013HolidayExpansionAnswers: __dirname + '/../config/cards/Official2013HolidayExpansion_answers.json',
+    Official90sNostalgiaExpansionAnswers: __dirname + '/../config/cards/Official90sNostalgiaExpansion_answers.json',
     BGGAnswers: __dirname + '/../config/cards/BGG_a.json',
     CustomAnswers: __dirname + '/../config/cards/Custom_a.json'
 };
