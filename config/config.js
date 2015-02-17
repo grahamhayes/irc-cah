@@ -58,7 +58,7 @@ var cardFiles = {
     Official3rdExpansionAnswers: __dirname + '/../config/cards/Official3rdExpansion_answers.json',
     Official2012HolidayExpansionAnswers: __dirname + '/../config/cards/Official2012HolidayExpansion_answers.json',
     Official2013HolidayExpansionAnswers: __dirname + '/../config/cards/Official2013HolidayExpansion_answers.json',
-    Official90sNostalgiaExpansionAnswers: __dirname + '/../config/cards/Official90sNostalgiaExpansion_answers.json',
+    Official90sNostalgiaExpansionAnswers: __dirname + '/../config/cards/90sNostalgiaExpansion_answers.json',
     OfficialBoxExpansion_answers: __dirname + '/../config/cards/OfficialBoxExpansion_answers.json',
     BGGAnswers: __dirname + '/../config/cards/BGG_a.json',
     CustomAnswers: __dirname + '/../config/cards/Custom_a.json'
