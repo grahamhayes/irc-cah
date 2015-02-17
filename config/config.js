@@ -43,7 +43,7 @@ if (!fs.existsSync(__dirname + '/../config/cards/Custom_q.json')) {
 // All card file paths. You can comment out the ones you don't want to use.
 var cardFiles = {
     OfficialBaseSetQuestions: __dirname + '/../config/cards/OfficialBaseSet_questions.json',
-    Official1stExpansionQuestions: __dirname + '/../config/cards/Official1stExpansion_questions.json'
+    Official1stExpansionQuestions: __dirname + '/../config/cards/Official1stExpansion_questions.json',
     Official2ndExpansionQuestions: __dirname + '/../config/cards/Official2ndExpansion_questions.json',
     Official3rdExpansionQuestions: __dirname + '/../config/cards/Official3rdExpansion_questions.json',
     Official2012HolidayExpansionQuestions: __dirname + '/../config/cards/Official2012HolidayExpansion_questions.json',
