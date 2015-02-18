@@ -1289,7 +1289,7 @@
   },
   {
     "type": "Question",
-    "value": "What two things do you need to survive on a deserted island?",
+    "value": "What two things do you need to survive on a deserted island? %s and %s.",
     "keep": "Yes",
     "draw": 1,
     "pick": 2,

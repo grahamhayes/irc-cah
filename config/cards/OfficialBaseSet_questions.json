@@ -9,7 +9,7 @@
     },
     {
         "type": "Question",
-        "value": "I got 99 problems but _ ain't one.",
+        "value": "I got 99 problems but %s ain't one.",
         "keep": "Yes",
         "draw": 0,
         "pick": 1,
@@ -523,8 +523,8 @@
         "type": "Question",
         "value": "I never truly understood %s until I encountered %s.",
         "keep": "Yes",
-        "draw": 0,
-        "pick": 1,
+        "draw": 1,
+        "pick": 2,
         "source": "Cards Against Humanity Base Set"
     },
     {
