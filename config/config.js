@@ -46,6 +46,7 @@ var cardFiles = {
     Official1stExpansionQuestions: __dirname + '/../config/cards/Official1stExpansion_questions.json',
     Official2ndExpansionQuestions: __dirname + '/../config/cards/Official2ndExpansion_questions.json',
     Official3rdExpansionQuestions: __dirname + '/../config/cards/Official3rdExpansion_questions.json',
+    Official4thExpansionQuestions: __dirname + '/../config/cards/Official4thExpansion_questions.json',
     Official2012HolidayExpansionQuestions: __dirname + '/../config/cards/Official2012HolidayExpansion_questions.json',
     Official2013HolidayExpansionQuestions: __dirname + '/../config/cards/Official2013HolidayExpansion_questions.json',
     Official90sNostalgiaExpansionQuestions: __dirname + '/../config/cards/90sNostalgiaExpansion_questions.json',
@@ -56,12 +57,13 @@ var cardFiles = {
     Official1stExpansionAnswers: __dirname + '/../config/cards/Official1stExpansion_answers.json',
     Official2ndExpansionAnswers: __dirname + '/../config/cards/Official2ndExpansion_answers.json',
     Official3rdExpansionAnswers: __dirname + '/../config/cards/Official3rdExpansion_answers.json',
+    Official4thExpansionAnswers: __dirname + '/../config/cards/Official4thExpansion_answers.json',
     Official2012HolidayExpansionAnswers: __dirname + '/../config/cards/Official2012HolidayExpansion_answers.json',
     Official2013HolidayExpansionAnswers: __dirname + '/../config/cards/Official2013HolidayExpansion_answers.json',
     Official90sNostalgiaExpansionAnswers: __dirname + '/../config/cards/90sNostalgiaExpansion_answers.json',
     OfficialBoxExpansion_answers: __dirname + '/../config/cards/OfficialBoxExpansion_answers.json',
     BGGAnswers: __dirname + '/../config/cards/BGG_a.json',
-    CustomAnswers: __dirname + '/../config/cards/Custom_a.json'
+    RedbrickAnswers: __dirname + '/../config/cards/Redbrick_answers.json'
 };
 
 // Init validator

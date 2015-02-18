@@ -113,7 +113,7 @@
   },
   {
     "type": "Question",
-    "value": "In its new tourism campaigh, Detroit proudly proclaims that it has finally eliminated %s.",
+    "value": "In its new tourism campaign, Detroit proudly proclaims that it has finally eliminated %s.",
     "keep": "Yes",
     "draw": 0,
     "pick": 1,

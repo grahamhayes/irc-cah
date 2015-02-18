@@ -41,14 +41,6 @@
   },
   {
     "type": "Question",
-    "value": "",
-    "keep": "Yes",
-    "draw": 0,
-    "pick": 1,
-    "source": "CaH Third Expansion"
-  },
-  {
-    "type": "Question",
     "value": "During high school I never really fit in until I found %s club.",
     "keep": "Yes",
     "draw": 0,

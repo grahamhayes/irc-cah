@@ -2039,14 +2039,6 @@
     "pick": 1,
     "source": "Cards Against Humanity Base Set"
   },
-	{
-    "type": "Answer",
-    "value": "",
-    "keep": "Yes",
-    "draw": 0,
-    "pick": 1,
-    "source": "Cards Against Humanity Base Set"
-  },
   {
     "type": "Answer",
     "value": "Overcompensation",
@@ -2305,14 +2297,6 @@
   },
   {
     "type": "Answer",
-    "value": "",
-    "keep": "Yes",
-    "draw": 0,
-    "pick": 1,
-    "source": "Cards Against Humanity Base Set"
-  },
-  {
-    "type": "Answer",
     "value": "Lumberjack fantasies",
     "keep": "Yes",
     "draw": 0,
@@ -2505,7 +2489,7 @@
   },
   {
     "type": "Answer",
-    "value": "Porn starts",
+    "value": "Porn stars",
     "keep": "Yes",
     "draw": 0,
     "pick": 1,
@@ -3322,14 +3306,6 @@
   {
     "type": "Answer",
     "value": "Crucifixion",
-    "keep": "Yes",
-    "draw": 0,
-    "pick": 1,
-    "source": "Cards Against Humanity Base Set"
-  },
-  {
-    "type": "Answer",
-    "value": "",
     "keep": "Yes",
     "draw": 0,
     "pick": 1,

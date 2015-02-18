@@ -11,6 +11,7 @@ module.exports = function(app) {
     app.cmd('play', '', games.play);
     app.cmd('list', '', games.list);
     app.cmd('winner', '', games.winner);
+    app.cmd('w', '', games.winner);
     app.cmd('points', '', games.points);
     app.cmd('status', '', games.status);
     app.cmd('pause', '', games.pause);
