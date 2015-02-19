@@ -6,5 +6,13 @@
     "draw": 0,
     "pick": 1,
     "source": "Custom cards"
+  },
+  {
+    "type": "Answer",
+    "value": "Cunt",
+    "keep": "Yes",
+    "draw": 0,
+    "pick": 1,
+    "source": "Custom cards"
   }
 ]
