@@ -57,7 +57,7 @@ exports.init = function () {
             // command not found
             return false;
         }
-        var cmd = cmdArr[1];
+        var cmd = cmdArr[1].toLowerCase();
         // parse arguments
         var cmdArgs = [];
         if (cmdArr.length > 2) {
