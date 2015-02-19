@@ -121,7 +121,7 @@
     },
     {
         "type": "Question",
-        "value": "In the new Disney Channel Original Movie, Hannah Montana struggle with %s for the first time.",
+        "value": "In the new Disney Channel Original Movie, Hannah Montana struggles with %s for the first time.",
         "keep": "Yes",
         "draw": 0,
         "pick": 1,
@@ -601,7 +601,7 @@
     },
     {
         "type": "Question",
-        "value": "What's the next superhero\/sidekick duo?",
+        "value": "Presenting the next superhero\/sidekick duo: %s and %s",
         "keep": "Yes",
         "draw": 1,
         "pick": 2,
@@ -617,7 +617,7 @@
     },
     {
         "type": "Question",
-        "value": "After the earthquake, Sean Penn brough %s to the people of Haiti.",
+        "value": "After the earthquake, Sean Penn brought %s to the people of Haiti.",
         "keep": "Yes",
         "draw": 0,
         "pick": 1,
