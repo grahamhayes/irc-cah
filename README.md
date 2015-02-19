@@ -8,6 +8,7 @@ IRC bot that let's you play [Cards Against Humanity](http://www.cardsagainsthuma
 * **!pause** - Pause the currently running game.
 * **!resume** - Resume a paused game.
 * **!join** - Join to the currently running game.
+* **!j** - Alias for join
 * **!quit** - Quit from the game.
 * **!cards** - Show the cards you have in your hand.
 * **!play # (#)** - Play a card from your hand, # being the number of the card in the list. Play as many numbers separated by spaces as the current card required.
@@ -16,8 +17,11 @@ IRC bot that let's you play [Cards Against Humanity](http://www.cardsagainsthuma
 * **!list** - List players in the current game.
 * **!status** - Show current status of the game. Output depends on the state of the game (e.g. when waiting for players to play, you can check who hasn't played yet)
 * **!pick** - Alias for !play and !winner commands.
+* **!p** - Alias for pick
 
-Some of these commands reply as notice. If you use [Irssi](http://www.irssi.org), you can use [active_notice.pl](http://scripts.irssi.org/scripts/active_notice.pl) to get notices on the active window instead of status window.
+All of these commands are case insensitive and are trimmed for whitespace so "!start" and "    !StaRt" will work the same
+
+Some of these commands reply as notice, others as a private message. If you use [Irssi](http://www.irssi.org), you can use [active_notice.pl](http://scripts.irssi.org/scripts/active_notice.pl) to get notices on the active window instead of status window.
 
 ##Install
 1. Clone the repository.
@@ -28,7 +32,7 @@ Some of these commands reply as notice. If you use [Irssi](http://www.irssi.org)
 * Node.js 0.10.*
 
 ##Run
-Run the bot by running `node app.js`, or if you want to run it with production settings instead of development, run `NODE_ENV=production node app.js`.
+Run the bot by running `node app.js`, or if you want to run it with development settings instead of production, run `NODE_ENV=development node app.js`.
 
 ##Configuration
 Main configuration files are located in `config/env`. There are two files by default for two different environments, development and production (e.g. if you want to test the bot on a separate channel). For the `clientOptions` directive, refer to the [Node-IRC documentation](https://node-irc.readthedocs.org/en/latest/API.html#client).
@@ -88,10 +92,7 @@ This example will send you a private message when the bot has connected to serve
 }
 ```
 ##TODO
-* Save game & player data to MongoDB for all time top scores & other statistics.
-* Config options for rule variations, such as voting the best instead of card czar choosing the winner.
-* The haiku round.
-* Allow players to change one card per round (make it an option in config?)
+* Allow players to change one card per round or to pay one awesome point for a new hand (make it an option in config?)
 
 ##Contribute
 All contributions are welcome in any form, be it pull requests for new features and bug fixes or issue reports or anything else.

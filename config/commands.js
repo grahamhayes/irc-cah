@@ -9,6 +9,7 @@ module.exports = function(app) {
     app.cmd('quit', '', games.quit);
     app.cmd('cards', '', games.cards);
     app.cmd('play', '', games.play);
+    app.cmd('players', '', games.list);
     app.cmd('list', '', games.list);
     app.cmd('winner', '', games.winner);
     app.cmd('w', '', games.winner);
