@@ -52,7 +52,7 @@ exports.init = function () {
     client.addListener('message', function (from, to, text, message) {
         console.log('message from ' + from + ' to ' + to + ': ' + text);
         // parse command
-        var cmdArr = text.match(/^[\.|!](\w+)\s?(.*)$/i);
+        var cmdArr = text.trim().match(/^[\.|!](\w+)\s?(.*)$/i);
         if (!cmdArr || cmdArr.length <= 1) {
             // command not found
             return false;
