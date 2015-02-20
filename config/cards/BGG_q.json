@@ -177,7 +177,7 @@
   },
   {
     "type": "Question",
-    "value": "%s. It's everywhere you want to be.",
+    "value": "%s. It's everywhere you want it to be.",
     "keep": "Yes",
     "draw": 0,
     "pick": 1,
