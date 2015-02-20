@@ -25,14 +25,6 @@
   },
   {
     "type": "Question",
-    "value": "%s: good to the last drop.",
-    "keep": "Yes",
-    "draw": 0,
-    "pick": 1,
-    "source": "BGG Suggestions"
-  },
-  {
-    "type": "Question",
     "value": "%s in the front seat; %s in the back seat; gotta make my mind up, which seat do I take?",
     "keep": "Yes",
     "draw": 1,
