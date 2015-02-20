@@ -42,34 +42,64 @@ if (!fs.existsSync(__dirname + '/../config/cards/Custom_q.json')) {
 
 // All card file paths. You can comment out the ones you don't want to use.
 var cardFiles = {
+    // Base Set
     OfficialBaseSetQuestions: __dirname + '/../config/cards/OfficialBaseSet_questions.json',
-    Official1stExpansionQuestions: __dirname + '/../config/cards/Official1stExpansion_questions.json',
-    Official2ndExpansionQuestions: __dirname + '/../config/cards/Official2ndExpansion_questions.json',
-    Official3rdExpansionQuestions: __dirname + '/../config/cards/Official3rdExpansion_questions.json',
-    Official4thExpansionQuestions: __dirname + '/../config/cards/Official4thExpansion_questions.json',
-    Official5thExpansionQuestions: __dirname + '/../config/cards/Official5thExpansion_questions.json',
-    Official2012HolidayExpansionQuestions: __dirname + '/../config/cards/Official2012HolidayExpansion_questions.json',
-    Official2013HolidayExpansionQuestions: __dirname + '/../config/cards/Official2013HolidayExpansion_questions.json',
-    Official90sNostalgiaExpansionQuestions: __dirname + '/../config/cards/90sNostalgiaExpansion_questions.json',
-    RejectExpansionQuestions: __dirname + '/../config/cards/RejectExpansion_questions.json',
-    BGGQuestions: __dirname + '/../config/cards/BGG_q.json',
-    BGGAmericaQuestions: __dirname + '/../config/cards/BGGAmerica_q.json',
-    CustomQuestions: __dirname + '/../config/cards/Custom_q.json',
-    GameOfThronesExpansion_questions: __dirname + '/../config/cards/GameOfThronesExpansion_questions.json',
     OfficialBaseSetAnswers: __dirname + '/../config/cards/OfficialBaseSet_answers.json',
+
+    // Official First Expansion
+    Official1stExpansionQuestions: __dirname + '/../config/cards/Official1stExpansion_questions.json',
     Official1stExpansionAnswers: __dirname + '/../config/cards/Official1stExpansion_answers.json',
+
+    // Official Second Expansion
+    Official2ndExpansionQuestions: __dirname + '/../config/cards/Official2ndExpansion_questions.json',
     Official2ndExpansionAnswers: __dirname + '/../config/cards/Official2ndExpansion_answers.json',
+
+    // Official Third Expansion
+    Official3rdExpansionQuestions: __dirname + '/../config/cards/Official3rdExpansion_questions.json',
     Official3rdExpansionAnswers: __dirname + '/../config/cards/Official3rdExpansion_answers.json',
+
+    // Official Fourth Expansion
+    Official4thExpansionQuestions: __dirname + '/../config/cards/Official4thExpansion_questions.json',
     Official4thExpansionAnswers: __dirname + '/../config/cards/Official4thExpansion_answers.json',
+
+    // Official Fifth Expansion
+    Official5thExpansionQuestions: __dirname + '/../config/cards/Official5thExpansion_questions.json',
     Official5thExpansionAnswers: __dirname + '/../config/cards/Official5thExpansion_answers.json',
+
+    // Official 2012 Holiday Expansion
+    Official2012HolidayExpansionQuestions: __dirname + '/../config/cards/Official2012HolidayExpansion_questions.json',
     Official2012HolidayExpansionAnswers: __dirname + '/../config/cards/Official2012HolidayExpansion_answers.json',
+
+    // Official 2013 Holiday Expansion
+    Official2013HolidayExpansionQuestions: __dirname + '/../config/cards/Official2013HolidayExpansion_questions.json',
     Official2013HolidayExpansionAnswers: __dirname + '/../config/cards/Official2013HolidayExpansion_answers.json',
+
+    // Official 90's Nostalgia Expansion
+    Official90sNostalgiaExpansionQuestions: __dirname + '/../config/cards/90sNostalgiaExpansion_questions.json',
     Official90sNostalgiaExpansionAnswers: __dirname + '/../config/cards/90sNostalgiaExpansion_answers.json',
+
+    // Bigger Blacker Box Expansion
     OfficialBoxExpansion_answers: __dirname + '/../config/cards/OfficialBoxExpansion_answers.json',
+
+    // Reject Expasnion
+    RejectExpansionQuestions: __dirname + '/../config/cards/RejectExpansion_questions.json',
     RejectExpansionAnswers: __dirname + '/../config/cards/RejectExpansion_answers.json',
-    BGGAnswers: __dirname + '/../config/cards/BGG_a.json',
+
+    // Game of Thrones Set
+    GameOfThronesExpansion_questions: __dirname + '/../config/cards/GameOfThronesExpansion_questions.json',
     GameOfThronesExpansion_answers: __dirname + '/../config/cards/GameOfThronesExpansion_answers.json',
-    RedbrickAnswers: __dirname + '/../config/cards/Redbrick_answers.json'
+
+    // Redbrick set
+    // RedbrickQuestions: __dirname + '/../config/cards/Redbrick'
+    RedbrickAnswers: __dirname + '/../config/cards/Redbrick_answers.json',
+
+    // Original Bot Author Set
+    BGGQuestions: __dirname + '/../config/cards/BGG_q.json',
+    BGGAnswers: __dirname + '/../config/cards/BGG_a.json',
+    BGGAmericaQuestions: __dirname + '/../config/cards/BGGAmerica_q.json',
+
+    // Custom Questions
+    CustomQuestions: __dirname + '/../config/cards/Custom_q.json'
 };
 
 // Init validator
