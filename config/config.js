@@ -55,6 +55,7 @@ var cardFiles = {
     BGGQuestions: __dirname + '/../config/cards/BGG_q.json',
     BGGAmericaQuestions: __dirname + '/../config/cards/BGGAmerica_q.json',
     CustomQuestions: __dirname + '/../config/cards/Custom_q.json',
+    GameOfThronesExpansion_questions: __dirname + '/../config/cards/GameOfThronesExpansion_questions.json',
     OfficialBaseSetAnswers: __dirname + '/../config/cards/OfficialBaseSet_answers.json',
     Official1stExpansionAnswers: __dirname + '/../config/cards/Official1stExpansion_answers.json',
     Official2ndExpansionAnswers: __dirname + '/../config/cards/Official2ndExpansion_answers.json',
@@ -67,6 +68,7 @@ var cardFiles = {
     OfficialBoxExpansion_answers: __dirname + '/../config/cards/OfficialBoxExpansion_answers.json',
     RejectExpansionAnswers: __dirname + '/../config/cards/RejectExpansion_answers.json',
     BGGAnswers: __dirname + '/../config/cards/BGG_a.json',
+    GameOfThronesExpansion_answers: __dirname + '/../config/cards/GameOfThronesExpansion_answers.json',
     RedbrickAnswers: __dirname + '/../config/cards/Redbrick_answers.json'
 };
 
