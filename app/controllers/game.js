@@ -502,7 +502,12 @@ var Game = function Game(channel, client, config, cmdArgs) {
                 // update points object
                 _.findWhere(self.points, {player: owner}).points = owner.points;
                 // announce winner
-                self.say(c.bold('Winner is: ') + owner.nick + ' with "' + self.getFullEntry(self.table.question, winner.getCards()) + '" and gets one awesome point! ' + owner.nick + ' has ' + owner.points + ' awesome points.');
+                if (owner.points === 1) {
+                    self.say(c.bold('Winner is: ') + owner.nick + ' with "' + self.getFullEntry(self.table.question, winner.getCards()) + '" and gets one awesome point! ' + owner.nick + ' has ' + owner.points + ' awesome point.');
+                }
+                else {
+                    self.say(c.bold('Winner is: ') + owner.nick + ' with "' + self.getFullEntry(self.table.question, winner.getCards()) + '" and gets one awesome point! ' + owner.nick + ' has ' + owner.points + ' awesome points.');
+                }
                 self.clean();
                 self.nextRound();
             }
@@ -684,7 +689,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
             if (point.points !== 1) {
                 output += point.player.nick + " " + point.points + " awesome points, ";
             } else {
-                output += point.player.nick + " " + point.points + " awesome points, ";
+                output += point.player.nick + " " + point.points + " awesome point, ";
             }
         });
         self.say('The most horrible people: ' + output.slice(0, -2));
