@@ -681,7 +681,11 @@ var Game = function Game(channel, client, config, cmdArgs) {
         });
         var output = "";
         _.each(sortedPlayers, function (point) {
-            output += point.player.nick + " " + point.points + " awesome points, ";
+            if (point.points !== 1) {
+                output += point.player.nick + " " + point.points + " awesome points, ";
+            } else {
+                output += point.player.nick + " " + point.points + " awesome points, ";
+            }
         });
         self.say('The most horrible people: ' + output.slice(0, -2));
     };
