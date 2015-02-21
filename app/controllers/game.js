@@ -742,7 +742,6 @@ var Game = function Game(channel, client, config, cmdArgs) {
         }
 
         // construct new topic
-        var topic = c.bold.yellow('No game is running. Type !start to begin one!');
         var newTopic = topic;
         if (typeof config.topicBase !== 'undefined') {
             newTopic = topic + ' ' + config.topicBase;
