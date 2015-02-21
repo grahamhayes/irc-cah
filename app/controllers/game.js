@@ -423,6 +423,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
                         playerCards.removeCard(card);
                     });
 
+                    self.discard.answers.push(playerCards);
                     player.hasDiscarded = true;
                     player.points -= 1;
 
