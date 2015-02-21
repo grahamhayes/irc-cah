@@ -765,7 +765,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
      * @param reason
      * @param message
      */
-    self.playerLeaveHandler = function (channel, nick, reason, message) {
+    self.playerPartHandler = function (channel, nick, reason, message) {
         console.log('Player ' + nick + ' left');
         var player = self.getPlayer({nick: nick});
         if (typeof player !== 'undefined') {
