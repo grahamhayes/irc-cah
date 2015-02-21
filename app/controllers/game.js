@@ -759,6 +759,17 @@ var Game = function Game(channel, client, config, cmdArgs) {
     };
 
     /**
+     * Helper function for the handlers below
+     */
+    self.findAndRemoveIfPlaying = function (nick) {
+        var player = self.getPlayer({nick: nick});
+
+        if (typeof player !== 'undefined') {
+            self.removePlayer(player);
+        }
+    };
+
+    /**
      * Handle player parts
      * @param channel
      * @param nick
@@ -767,10 +778,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
      */
     self.playerPartHandler = function (channel, nick, reason, message) {
         console.log('Player ' + nick + ' left');
-        var player = self.getPlayer({nick: nick});
-        if (typeof player !== 'undefined') {
-            self.removePlayer(player);
-        }
+        self.findAndRemoveIfPlaying(nick);
     };
 
     /**
@@ -782,11 +790,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
      */
     self.playerKickHandler = function (nick, by, reason, message) {
         console.log('Player ' + nick + ' was kicked by ' + by);
-
-        var player = self.getPlayer({nick: nick});
-        if (typeof player !== 'undefined') {
-            self.removePlayer(player);
-        }
+        self.findAndRemoveIfPlaying(nick);
     };
 
     /**
@@ -798,10 +802,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
      */
     self.playerQuitHandler = function (nick, reason, channel, message) {
         console.log('Player ' + nick + ' left');
-        var player = self.getPlayer({nick: nick});
-        if (typeof player !== 'undefined') {
-            self.removePlayer(player);
-        }
+        self.findAndRemoveIfPlaying(nick);
     };
 
     /**
