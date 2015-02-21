@@ -93,6 +93,10 @@ var cardFiles = {
     HouseOfCardsAgainstHumanityQuestions: __dirname + '/../config/cards/HouseOfCardsAgainstHumanityExpansion_questions.json',
     HouseOfCardsAgainstHumanityAnswers: __dirname + '/../config/cards/HouseOfCardsAgainstHumanityExpansion_answers.json',
 
+    // PAX East 2013 Set
+    PAXEast2013ExpansionQuestions: __dirname + '/../config/cards/PAXEast2013Expansion_questions.json',
+    PAXEast2013ExpansionAnswers: __dirname + '/../config/cards/PAXEast2013Expansion_answers.json',
+
     // Redbrick set
     // RedbrickQuestions: __dirname + '/../config/cards/Redbrick'
     RedbrickAnswers: __dirname + '/../config/cards/Redbrick_answers.json',
