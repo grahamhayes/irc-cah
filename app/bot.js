@@ -47,7 +47,7 @@ exports.init = function () {
 
         if (config.setTopic && nick === config.nick) {
             console.log("Setting topic for channel");
-            client.setTopic(c.bold.yellow('No game is running. Type !start to begin one!'));
+            self.setTopic(c.bold.yellow('No game is running. Type !start to begin one!'));
         }
     });
 
