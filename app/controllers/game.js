@@ -759,13 +759,28 @@ var Game = function Game(channel, client, config, cmdArgs) {
     };
 
     /**
-     * Handle player quits and parts
+     * Handle player parts
      * @param channel
      * @param nick
      * @param reason
      * @param message
      */
     self.playerLeaveHandler = function (channel, nick, reason, message) {
+        console.log('Player ' + nick + ' left');
+        var player = self.getPlayer({nick: nick});
+        if (typeof player !== 'undefined') {
+            self.removePlayer(player);
+        }
+    };
+
+    /**
+     * Handle player quits
+     * @param nick
+     * @param reason
+     * @param channel
+     * @param message
+     */
+    self.playerQuitHandler = function (nick, reason, channel, message) {
         console.log('Player ' + nick + ' left');
         var player = self.getPlayer({nick: nick});
         if (typeof player !== 'undefined') {
@@ -855,8 +870,8 @@ var Game = function Game(channel, client, config, cmdArgs) {
     self.startTimeout = setTimeout(self.nextRound, 30000);
 
     // client listeners
-    client.addListener('part', self.playerLeaveHandler);
-    client.addListener('quit', self.playerLeaveHandler);
+    client.addListener('part', self.playerPartHandler);
+    client.addListener('quit', self.playerQuitHandler);
     client.addListener('nick', self.playerNickChangeHandler);
     client.addListener('names'+channel, self.notifyUsersHandler);
 };
