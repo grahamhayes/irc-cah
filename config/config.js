@@ -97,6 +97,10 @@ var cardFiles = {
     PAXEast2013ExpansionQuestions: __dirname + '/../config/cards/PAXEast2013Expansion_questions.json',
     PAXEast2013ExpansionAnswers: __dirname + '/../config/cards/PAXEast2013Expansion_answers.json',
 
+    // PAX Prime 2013 Set
+    PAXPrime2013ExpansionQuestions: __dirname + '/../config/cards/PAXPrime2013Expansion_questions.json',
+    PAXPrime2013ExpansionAnswers: __dirname + '/../config/card/PAXPrime2013Expansion_answers.json',
+
     // Redbrick set
     // RedbrickQuestions: __dirname + '/../config/cards/Redbrick'
     RedbrickAnswers: __dirname + '/../config/cards/Redbrick_answers.json',
