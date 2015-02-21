@@ -41,7 +41,7 @@ exports.init = function () {
             _.each(config.joinCommands[channel], function (cmd) {
                 if(cmd.target && cmd.message) {
                     client.say(cmd.target, cmd.message);
-                } else if (cmd.target && config.setTopicOnJoin && nick === config.nick) {
+                } else if (config.setTopicOnJoin && nick === config.nick) {
                     client.setTopic(c.bold.yellow('No game is running. Type !start to begin one!'));
                 }
             });
