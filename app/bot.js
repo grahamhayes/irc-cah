@@ -60,7 +60,7 @@ exports.init = function () {
                 newTopic = topic + ' ' + config.topicBase;
             }
 
-            var currentTopic = client.send('TOPIC', channel);
+            var currentTopic = client.chans[channel]['topic'];
 
             if (newTopic !== currentTopic) {
                 // Only set the topic if it is different to the one already set§
