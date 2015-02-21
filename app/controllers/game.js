@@ -376,6 +376,57 @@ var Game = function Game(channel, client, config, cmdArgs) {
     };
 
     /**
+     * Allow a player to discard a number of cards once per turn
+     * @param cards Array of card indexes to discard
+     * @param player The player who discarded
+     */
+    self.discard = function (cards, player) {
+        if (self.state === STATES.PAUSED) {
+            self.say('Game is currently paused');
+            return false;
+        }
+
+        console.log(player.nick + 'discarded' + cards.join(', '));
+        cards = _.uniq(cards);
+
+        if (self.state !== STATES.PLAYABLE || player.cards.numCards() === 0) {
+            self.say(player.nick + ': Can\'t discard at the moment.');
+        } else if (typeof player !== 'undefined') {
+            if (player.isCzar === true) {
+                self.say(player.nick + ': You are the card czar. You cannot discard cards until you are a regular player.');
+            } else {
+                if (player.hasDiscarded === true) {
+                    self.say(player.nick + ': You may only discard once per turn.');
+                } else if (player.points < 1) {
+                    self.say(player.nick + ': You must have at least one awesome point to discard.');
+                } else {
+                    var playerCards;
+                    try {
+                        playerCards = player.cards.pickCards(cards);
+                    } catch (error) {
+                        self.pm(player.nick, 'Invalid card index.');
+                        return false;
+                    }
+
+                    // Add the cards to the discard pile, and reduce points, and mark the player as having discarded
+                    self.discard.answers.push(playerCards);
+                    player.hasDiscarded = true;
+                    player.points -= 1;
+
+                    for (var i = 0; i < playerCards.numCards(); i++) {
+                        self.checkDecks();
+                        var card = self.decks.answer.pickCards();
+                        player.cards.addCard(card);
+                        card.owner = player;
+                    }
+                }
+            }
+        } else {
+            console.warn('Invalid player tried to discard cards')
+        }
+    }
+
+    /**
      * Check the time that has elapsed since the beinning of the turn.
      * End the turn is time limit is up
      */
