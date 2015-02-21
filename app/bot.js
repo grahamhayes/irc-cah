@@ -60,8 +60,12 @@ exports.init = function () {
                 newTopic = topic + ' ' + config.topicBase;
             }
 
-            // set it
-            client.send('TOPIC', channel, newTopic);
+            var currentTopic = client.send('TOPIC', channel);
+
+            if (newTopic !== currentTopic) {
+                // Only set the topic if it is different to the one already set§
+                client.send('TOPIC', channel, newTopic);
+            }
         }
     });
 
