@@ -1,5 +1,6 @@
 var _ = require('underscore'),
     irc = require('irc'),
+    c = require('irc-colors'),
     config = require('../config/config'),
     client,
     commands = [],
@@ -13,6 +14,7 @@ function checkUserMode(message, mode) {
  * Initialize the bot
  */
 exports.init = function () {
+    var self = this;
     console.log('Initializing...');
     // init irc client
     console.log('Connecting to ' + config.server + ' as ' + config.nick + '...');
@@ -39,6 +41,8 @@ exports.init = function () {
             _.each(config.joinCommands[channel], function (cmd) {
                 if(cmd.target && cmd.message) {
                     client.say(cmd.target, cmd.message);
+                } else if (cmd.target && config.setTopicOnJoin && nick === config.nick) {
+                    client.setTopic(c.bold.yellow('No game is running. Type !start to begin one!'));
                 }
             });
         }
@@ -91,6 +95,22 @@ exports.init = function () {
             }, this);
         }
     });
+
+    self.setTopic = function (topic) {
+        // ignore if not configured to set topic
+        if (typeof config.setTopic === 'undefined' || !config.setTopic) {
+            return false;
+        }
+
+        // construct new topic
+        var newTopic = topic;
+        if (typeof config.topicBase !== 'undefined') {
+            newTopic = topic + ' ' + config.topicBase;
+        }
+
+        // set it
+        client.send('TOPIC', channel, newTopic);
+    }
 };
 
 /**

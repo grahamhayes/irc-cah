@@ -736,19 +736,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
      * Set the channel topic
      */
     self.setTopic = function (topic) {
-        // ignore if not configured to set topic
-        if (typeof config.setTopic === 'undefined' || !config.setTopic) {
-            return false;
-        }
-
-        // construct new topic
-        var newTopic = topic;
-        if (typeof config.topicBase !== 'undefined') {
-            newTopic = topic + ' ' + config.topicBase;
-        }
-
-        // set it
-        client.send('TOPIC', channel, newTopic);
+        client.setTopic(topic);
     };
 
     /**
