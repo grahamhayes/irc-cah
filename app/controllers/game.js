@@ -775,16 +775,20 @@ var Game = function Game(channel, client, config, cmdArgs) {
 
     /**
      * Handle player kicks
+     * @param channel
      * @param nick
      * @param by
      * @param reason
      * @param message
      */
-    self.playerKickHandler = function (nick, by, reason, message) {
-        console.log('Player ' + nick + ' was kicked by ' + by);
-        var player = self.getPlayer({nick: nick});
-        if (typeof player !== 'undefined') {
-            self.removePlayer(player);
+    self.playerKickHandler = function (channel, nick, by, reason, message) {
+        if (channel == self.channel) {
+            console.log('Player ' + nick + ' was kicked by ' + by);
+
+            var player = self.getPlayer({nick: nick});
+            if (typeof player !== 'undefined') {
+                self.removePlayer(player);
+            }
         }
     };
 
@@ -887,7 +891,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
     // client listeners
     client.addListener('part', self.playerPartHandler);
     client.addListener('quit', self.playerQuitHandler);
-    client.addListener('kick'+channel, self.playerKickHandler);
+    client.addListener('kick', self.playerKickHandler);
     client.addListener('nick', self.playerNickChangeHandler);
     client.addListener('names'+channel, self.notifyUsersHandler);
 };
