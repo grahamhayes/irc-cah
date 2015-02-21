@@ -420,6 +420,8 @@ var Game = function Game(channel, client, config, cmdArgs) {
                         player.cards.addCard(card);
                         card.owner = player;
                     }
+
+                    self.showCards(player);
                 }
             }
         } else {
