@@ -47,7 +47,21 @@ exports.init = function () {
 
         if (config.setTopic && nick === config.nick) {
             console.log("Setting topic for channel");
-            self.setTopic(c.bold.yellow('No game is running. Type !start to begin one!'));
+
+            // ignore if not configured to set topic
+            if (typeof config.setTopic === 'undefined' || !config.setTopic) {
+                return false;
+            }
+
+            // construct new topic
+            var topic = c.bold.yellow('No game is running. Type !start to begin one!');
+            var newTopic = topic;
+            if (typeof config.topicBase !== 'undefined') {
+                newTopic = topic + ' ' + config.topicBase;
+            }
+
+            // set it
+            client.send('TOPIC', channel, newTopic);
         }
     });
 
