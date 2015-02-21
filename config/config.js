@@ -90,8 +90,8 @@ var cardFiles = {
     GameOfThronesExpansionQnswers: __dirname + '/../config/cards/GameOfThronesExpansion_answers.json',
 
     // House of Cards Against Humanity Set
-    HouseOfCardsAgainstHumanityQuestions: __dirname + '/../config/cards/HouseOfCardsAgainstHumanity_questions.json',
-    HouseOfCardsAgainstHumanityAnswers: __dirname + '/../config/cards/HouseOfCardsAgainstHumanity_answers.json',
+    HouseOfCardsAgainstHumanityQuestions: __dirname + '/../config/cards/HouseOfCardsAgainstHumanityExpansion_questions.json',
+    HouseOfCardsAgainstHumanityAnswers: __dirname + '/../config/cards/HouseOfCardsAgainstHumanityExpansion_answers.json',
 
     // Redbrick set
     // RedbrickQuestions: __dirname + '/../config/cards/Redbrick'
