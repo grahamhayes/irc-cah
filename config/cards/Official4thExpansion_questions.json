@@ -81,7 +81,7 @@
   },
   {
     "type": "Question",
-    "value": "In the beginningm, there was %s. And the Lord said, \"Let there be %s.\"",
+    "value": "In the beginning, there was %s. And the Lord said, \"Let there be %s.\"",
     "keep": "Yes",
     "draw": 1,
     "pick": 2,
