@@ -420,10 +420,10 @@ var Game = function Game(channel, client, config, cmdArgs) {
                     _.each(playerCards.getCards(), function (card) {
                         card.owner = null;
                         self.discards.answer.addCard(card);
-                        playerCards.removeCard(card);
+                        playerCards.remove(card);
                     });
 
-                    self.discards.answer.push(playerCards);
+                    self.discards.answer.(playerCards);
                     player.hasDiscarded = true;
                     player.points -= 1;
 
