@@ -416,7 +416,6 @@ var Game = function Game(channel, client, config, cmdArgs) {
                         playerCards.remove(card);
                     });
 
-                    self.discards.answer.(playerCards);
                     player.hasDiscarded = true;
                     player.points -= 1;
 
