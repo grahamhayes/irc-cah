@@ -417,7 +417,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
                     }
 
                     // Add the cards to the discard pile, and reduce points, and mark the player as having discarded
-                    self.discard.answers.push(playerCards);
+                    self.discard.answer.push(playerCards);
                     player.hasDiscarded = true;
                     player.points -= 1;
 
