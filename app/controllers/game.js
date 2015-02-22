@@ -420,7 +420,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
                     _.each(playerCards.getCards(), function (card) {
                         card.owner = null;
                         self.discards.answer.addCard(card);
-                        playerCards.remove(card);
+                        playerCards.removeCard(card);
                     });
 
                     player.hasDiscarded = true;
