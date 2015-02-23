@@ -33,7 +33,7 @@
   },
   {
     "type": "Question",
-    "value": "Alright, bros. Our frathouse in condemned, and all the hot slampieces are over at Gamma Phi. The time has come to commence Operation %s.",
+    "value": "Alright, bros. Our frathouse is condemned, and all the hot slampieces are over at Gamma Phi. The time has come to commence Operation %s.",
     "keep": "Yes",
     "draw": 0,
     "pick": 1,
