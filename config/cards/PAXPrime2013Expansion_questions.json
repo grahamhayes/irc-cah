@@ -17,7 +17,7 @@
   },
   {
     "type": "Question",
-    "value": "In the new DLC for Mass Effect, Shepard muse save the galaxy from %s.",
+    "value": "In the new DLC for Mass Effect, Shepard must save the galaxy from %s.",
     "keep": "Yes",
     "draw": 0,
     "pick": 1,
