@@ -875,7 +875,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
     self.setTopic(c.bold.lime('A game is running. Type !join to get in on it!'));
 
     // announce the game on the channel
-    self.say('A new game of ' + c.rainbow('Cards Against Humanity') + '. The game starts in 30 seconds. Type !join to join the game any time.');
+    self.say('A new game of ' + c.rainbow('Cards Against Humanity') + '. The game starts in 60 seconds. Type !join to join the game any time.');
 
     // notify users
     if (typeof config.notifyUsers !== 'undefined' && config.notifyUsers) {
@@ -884,7 +884,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
 
     // wait for players to join
     self.startTime = new Date();
-    self.startTimeout = setTimeout(self.nextRound, 30000);
+    self.startTimeout = setTimeout(self.nextRound, 60000);
 
     // client listeners
     client.addListener('part', self.playerPartHandler);
