@@ -111,6 +111,13 @@ var Game = function Game(channel, client, config, cmdArgs) {
         clearTimeout(self.turnTimer);
         clearTimeout(self.winnerTimer);
 
+        // Remove listeners
+        client.removeListener('part', self.playerPartHandler);
+        client.removeListener('quit', self.playerQuitHandler);
+        client.removeListener('kick' + self.channel, self.playerKickHandler);
+        client.removeListener('nick', self.playerNickChangeHandler);
+        client.removeListener('names'+ self.channel, self.notifyUsersHandler);
+
         // Destroy game properties
         delete self.players;
         delete self.config;
