@@ -369,14 +369,6 @@
   },
   {
     "type": "Question",
-    "value": "Dear Sir or Madam, We regret to inform you that the Office of %s has denied your request for %s.",
-    "keep": "Yes",
-    "draw": 1,
-    "pick": 2,
-    "source": "BGG Suggestions"
-  },
-  {
-    "type": "Question",
     "value": "Disney presents %s on ice!",
     "keep": "Yes",
     "draw": 0,
