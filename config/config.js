@@ -99,7 +99,7 @@ var cardFiles = {
 
     // PAX Prime 2013 Set
     PAXPrime2013ExpansionQuestions: __dirname + '/../config/cards/PAXPrime2013Expansion_questions.json',
-    PAXPrime2013ExpansionAnswers: __dirname + '/../config/card/PAXPrime2013Expansion_answers.json',
+    PAXPrime2013ExpansionAnswers: __dirname + '/../config/cards/PAXPrime2013Expansion_answers.json',
 
     // PAX East 2014 Set
     PAXEastPanel2014ExpansionQuestions: __dirname + '/../config/cards/PAXEast2014Expansion_questions.json',
