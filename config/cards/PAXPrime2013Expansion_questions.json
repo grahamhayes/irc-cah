@@ -1,7 +1,7 @@
 [
   {
     "type": "Question",
-    "value": "The most controversion game at PAX this year is an 8-bit indie platformer about %s.",
+    "value": "The most controversial game at PAX this year is an 8-bit indie platformer about %s.",
     "keep": "Yes",
     "draw": 0,
     "pick": 1,
