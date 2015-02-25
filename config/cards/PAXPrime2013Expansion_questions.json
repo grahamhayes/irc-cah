@@ -41,7 +41,7 @@
   },
   {
     "type": "Question",
-    "value": "There was a riot at the Gearbox panel whe they gave the attendees %s.",
+    "value": "There was a riot at the Gearbox panel where they gave the attendees %s.",
     "keep": "Yes",
     "draw": 0,
     "pick": 1,
