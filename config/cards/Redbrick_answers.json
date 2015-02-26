@@ -22,5 +22,13 @@
     "draw": 0,
     "pick": 1,
     "source": "Custom cards"
+  },
+  {
+    "type": "Answer",
+    "value": "Not giving away a setlist because you can see tits on the internet",
+    "keep": "Yes",
+    "draw": 0,
+    "pick": 1,
+    "source": "Custom cards"
   }
 ]
