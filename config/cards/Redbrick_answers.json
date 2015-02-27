@@ -5,7 +5,7 @@
     "keep": "Yes",
     "draw": 0,
     "pick": 1,
-    "source": "Custom cards"
+    "source": "Redbrick cards"
   },
   {
     "type": "Answer",
@@ -13,7 +13,7 @@
     "keep": "Yes",
     "draw": 0,
     "pick": 1,
-    "source": "Custom cards"
+    "source": "Redbrick cards"
   },
   {
     "type": "Answer",
@@ -21,7 +21,7 @@
     "keep": "Yes",
     "draw": 0,
     "pick": 1,
-    "source": "Custom cards"
+    "source": "Redbrick cards"
   },
   {
     "type": "Answer",
@@ -29,6 +29,38 @@
     "keep": "Yes",
     "draw": 0,
     "pick": 1,
-    "source": "Custom cards"
+    "source": "Redbrick cards"
+  },
+  {
+    "type": "Answer",
+    "value": "Beating people up and down the bar because you typed your password into a chat room",
+    "keep": "Yes",
+    "draw": 0,
+    "pick": 1,
+    "source": "Redbrick cards"
+  },
+  {
+    "type": "Answer",
+    "value": "Is this another one of those recursive wiki entries?",
+    "keep": "Yes",
+    "draw": 0,
+    "pick": 1,
+    "source": "Redbrick cards"
+  },
+  {
+    "type": "Answer",
+    "value": "Failchair",
+    "keep": "Yes",
+    "draw": 0,
+    "pick": 1,
+    "source": "Redbrick cards"
+  },
+  {
+    "type": "Answer",
+    "value": "RESIIIIIIIIIIIGN",
+    "keep": "Yes",
+    "draw": 0,
+    "pick": 1,
+    "source": "Redbrick cards"
   }
 ]
