@@ -30,5 +30,21 @@
     "draw": 0,
     "pick": 1,
     "source": "Custom cards"
+  },
+  {
+    "type": "Answer",
+    "value": "Grand",
+    "keep": "Yes",
+    "draw": 0,
+    "pick": 1,
+    "source": "Custom cards"
+  },
+  {
+    "type": "Answer",
+    "value": "Chillis",
+    "keep": "Yes",
+    "draw": 0,
+    "pick": 1,
+    "source": "Custom cards"
   }
 ]
