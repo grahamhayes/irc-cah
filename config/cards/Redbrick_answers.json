@@ -41,7 +41,7 @@
   },
   {
     "type": "Answer",
-    "value": "Is this another one of those recursive wiki entries?",
+    "value": "Another one of those recursive wiki entries",
     "keep": "Yes",
     "draw": 0,
     "pick": 1,
@@ -58,6 +58,14 @@
   {
     "type": "Answer",
     "value": "RESIIIIIIIIIIIGN",
+    "keep": "Yes",
+    "draw": 0,
+    "pick": 1,
+    "source": "Redbrick cards"
+  },
+  {
+    "type": "Answer",
+    "value": "Grand chillis",
     "keep": "Yes",
     "draw": 0,
     "pick": 1,
