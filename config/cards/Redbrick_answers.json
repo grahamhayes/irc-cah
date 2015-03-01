@@ -29,6 +29,7 @@
     "keep": "Yes",
     "draw": 0,
     "pick": 1,
+<<<<<<< HEAD
     "source": "Redbrick cards"
   },
   {
@@ -66,6 +67,22 @@
   {
     "type": "Answer",
     "value": "Grand chillis",
+    "keep": "Yes",
+    "draw": 0,
+    "pick": 1,
+    "source": "Redbrick cards"
+  },
+  {
+    "type": "Answer",
+    "value": "Grand",
+    "keep": "Yes",
+    "draw": 0,
+    "pick": 1,
+    "source": "Redbrick cards"
+  },
+  {
+    "type": "Answer",
+    "value": "Chillis",
     "keep": "Yes",
     "draw": 0,
     "pick": 1,
