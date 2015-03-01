@@ -79,7 +79,7 @@ var cardFiles = {
     Official90sNostalgiaExpansionAnswers: __dirname + '/../config/cards/90sNostalgiaExpansion_answers.json',
 
     // Bigger Blacker Box Expansion
-    OfficialBoxExpansion_answers: __dirname + '/../config/cards/OfficialBoxExpansion_answers.json',
+    OfficialBoxExpansionAnswers: __dirname + '/../config/cards/OfficialBoxExpansion_answers.json',
 
     // Reject Expasnion
     RejectExpansionQuestions: __dirname + '/../config/cards/RejectExpansion_questions.json',
@@ -87,7 +87,7 @@ var cardFiles = {
 
     // Game of Thrones Set
     GameOfThronesExpansionQuestions: __dirname + '/../config/cards/GameOfThronesExpansion_questions.json',
-    GameOfThronesExpansionQnswers: __dirname + '/../config/cards/GameOfThronesExpansion_answers.json',
+    GameOfThronesExpansionAnswers: __dirname + '/../config/cards/GameOfThronesExpansion_answers.json',
 
     // House of Cards Against Humanity Set
     HouseOfCardsAgainstHumanityQuestions: __dirname + '/../config/cards/HouseOfCardsAgainstHumanityExpansion_questions.json',
@@ -108,6 +108,10 @@ var cardFiles = {
     // PAX East Panel 2014 Set
     PAXEastPanel2014ExpansionQuestions: __dirname + '/../config/cards/PAXEastPanel2014Expansion_questions.json',
     PAXEastPanel2014ExpansionAnswers: __dirname + '/../config/cards/PAXEastPanel2014Expansion_answers.json',
+
+    // PAX Prime Panel 2014 Set
+    PAXPrimePanel2014ExpansionQuestions: __dirname + '/../config/cards/PAXPrimePanel2014_questions.json',
+    PAXPrimePanel2014ExpansionAnswers: __dirname + '/../config/cards/PAXPrimePanel2014_answers.json',
 
     // Redbrick set
     // RedbrickQuestions: __dirname + '/../config/cards/Redbrick'
