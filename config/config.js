@@ -110,8 +110,8 @@ var cardFiles = {
     PAXEastPanel2014ExpansionAnswers: __dirname + '/../config/cards/PAXEastPanel2014Expansion_answers.json',
 
     // PAX Prime Panel 2014 Set
-    PAXPrimePanel2014ExpansionQuestions: __dirname + '/../config/cards/PAXPrimePanel2014_questions.json',
-    PAXPrimePanel2014ExpansionAnswers: __dirname + '/../config/cards/PAXPrimePanel2014_answers.json',
+    PAXPrimePanel2014ExpansionQuestions: __dirname + '/../config/cards/PAXPrimePanel2014Expansion_questions.json',
+    PAXPrimePanel2014ExpansionAnswers: __dirname + '/../config/cards/PAXPrimePanel2014Expansion_answers.json',
 
     // Redbrick set
     // RedbrickQuestions: __dirname + '/../config/cards/Redbrick'
