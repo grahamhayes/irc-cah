@@ -707,7 +707,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
      */
     self.showStatus = function () {
         var playersNeeded = Math.max(0, 3 - self.players.length), // amount of player needed to start the game
-            timeLeft = 30 - Math.round((new Date().getTime() - self.startTime.getTime()) / 1000), // time left until first round
+            timeLeft = 60 - Math.round((new Date().getTime() - self.startTime.getTime()) / 1000), // time left until first round
             activePlayers = _.filter(self.players, function (player) {
                 // only players with cards in hand are active
                 return player.cards.numCards() > 0;
