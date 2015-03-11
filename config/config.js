@@ -102,8 +102,8 @@ var cardFiles = {
     PAXPrime2013ExpansionAnswers: __dirname + '/../config/cards/PAXPrime2013Expansion_answers.json',
 
     // PAX East 2014 Set
-    PAXEastPanel2014ExpansionQuestions: __dirname + '/../config/cards/PAXEast2014Expansion_questions.json',
-    PAXEastPanel2014ExpansionAnswers: __dirname + '/../config/cards/PAXEast2014Expansion_answers.json',
+    PAXEast2014ExpansionQuestions: __dirname + '/../config/cards/PAXEast2014Expansion_questions.json',
+    PAXEast2014ExpansionAnswers: __dirname + '/../config/cards/PAXEast2014Expansion_answers.json',
 
     // PAX East Panel 2014 Set
     PAXEastPanel2014ExpansionQuestions: __dirname + '/../config/cards/PAXEastPanel2014Expansion_questions.json',
