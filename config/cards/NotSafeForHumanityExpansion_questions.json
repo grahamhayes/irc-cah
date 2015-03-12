@@ -190,7 +190,7 @@
     "draw": 0,
     "pick": 1,
     "source": "Not Safe For Humanity Set"
-  },,
+  },
   {
     "type": "Question",
     "value": "What's the newest Japanese craze to head West?",
@@ -198,7 +198,7 @@
     "draw": 0,
     "pick": 1,
     "source": "Not Safe For Humanity Set"
-  },,
+  },
   {
     "type": "Question",
     "value": "Everybody loves %s",
