@@ -113,6 +113,10 @@ var cardFiles = {
     PAXPrimePanel2014ExpansionQuestions: __dirname + '/../config/cards/PAXPrimePanel2014Expansion_questions.json',
     PAXPrimePanel2014ExpansionAnswers: __dirname + '/../config/cards/PAXPrimePanel2014Expansion_answers.json',
 
+    // Not Safe For Humanity Expansion
+    NotSafeForHumanityExpansionQuestions: __dirname + '/../config/cards/NotSafeForHumanityExpansion_questions.json',
+    NotSafeForHumanityExpansionAnswers: __dirname + '/../config/cards/NotSafeForHumanityExpansion_answers.json',
+
     // Redbrick set
     // RedbrickQuestions: __dirname + '/../config/cards/Redbrick'
     RedbrickAnswers: __dirname + '/../config/cards/Redbrick_answers.json',
