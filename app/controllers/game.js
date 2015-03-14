@@ -416,6 +416,13 @@ var Game = function Game(channel, client, config, cmdArgs) {
                         return false;
                     }
 
+                    for (var i = playerCards.numCards(); i < player.cards.numCards() + playerCards.numCards(); i++) {
+                        self.checkDecks();
+                        var card = self.decks.answer.pickCards();
+                        player.cards.addCard(card);
+                        card.owner = player;
+                    }
+
                     // Add the cards to the discard pile, and reduce points, and mark the player as having discarded
                     _.each(playerCards.getCards(), function (card) {
                         card.owner = null;
@@ -426,14 +433,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
                     player.hasDiscarded = true;
                     player.points -= 1;
 
-                    for (var i = 0; i < playerCards.numCards(); i++) {
-                        self.checkDecks();
-                        var card = self.decks.answer.pickCards();
-                        player.cards.addCard(card);
-                        card.owner = player;
-                    }
-
-                    self.pm(player.nick, "You have discarded, and have " + player.points + " remaining");
+                    self.pm(player.nick, "You have discarded, and have " + player.points + " points remaining");
                     self.showCards(player);
                 }
             }
