@@ -420,6 +420,14 @@ var Game = function Game(channel, client, config, cmdArgs) {
                     self.say(player.nick + ': You must have at least one awesome point to discard.');
                 } else {
                     var playerCards;
+
+                    if (cards.length === 0){
+                        cards = [];
+                        for (var i = 0; i < player.cards.numCards(); i++) {
+                            cards[i] = i;
+                        }
+                    }
+
                     try {
                         playerCards = player.cards.pickCards(cards);
                     } catch (error) {
@@ -429,16 +437,12 @@ var Game = function Game(channel, client, config, cmdArgs) {
 
                     self.deal(player, player.cards.numCards() + playerCards.numCards());
 
-                    console.log("Added cards to hand");
-
                     // Add the cards to the discard pile, and reduce points, and mark the player as having discarded
                     _.each(playerCards.getCards(), function (card) {
                         card.owner = null;
                         self.discards.answer.addCard(card);
                         playerCards.removeCard(card);
                     });
-
-                    console.log("Discarded cards");
 
                     player.hasDiscarded = true;
                     player.points -= 1;
