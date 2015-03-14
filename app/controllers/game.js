@@ -676,13 +676,13 @@ var Game = function Game(channel, client, config, cmdArgs) {
      */
     self.showCards = function (player) {
         if (typeof player !== 'undefined') {
-            var cardsZeroToSix = 'Your cards are: ';
+            var cardsZeroToSix = 'Your cards are:';
             var cardsSevenToTwelve = '';
             _.each(player.cards.getCards(), function (card, index) {
                 if (index < 7) {
                     cardsZeroToSix += c.bold(' [' + index + '] ') + card.value;
                 } else {
-                    cardsSevenToTwelve += c.bold(' [' + index + '] ') + card.value;
+                    cardsSevenToTwelve += c.bold('[' + index + '] ') + card.value + ' ';
                 }
             }, this);
 
