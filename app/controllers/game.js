@@ -251,16 +251,27 @@ var Game = function Game(channel, client, config, cmdArgs) {
     /**
      * Deal cards to fill players' hands
      */
-    self.deal = function () {
-        _.each(self.players, function (player) {
-            console.log(player.nick + '(' + player.hostname + ') has ' + player.cards.numCards() + ' cards. Dealing ' + (10 - player.cards.numCards()) + ' cards');
-            for (var i = player.cards.numCards(); i < 10; i++) {
-                self.checkDecks();
-                var card = self.decks.answer.pickCards();
-                player.cards.addCard(card);
-                card.owner = player;
+    self.deal = function (player, num) {
+        if (typeof player === 'undefined') {
+            _.each(self.players, function (player, num) {
+                console.log(player.nick + '(' + player.hostname + ') has ' + player.cards.numCards() + ' cards. Dealing ' + (10 - player.cards.numCards()) + ' cards');
+                for (var i = player.cards.numCards(); i < 10; i++) {
+                    self.checkDecks();
+                    var card = self.decks.answer.pickCards();
+                    player.cards.addCard(card);
+                    card.owner = player;
+                }
+            }, this);
+        } else {
+            if (typeof num !== 'undefined') {
+                for (var i = player.cards.numCards(); i < num; i++) {
+                    self.checkDecks();
+                    var card = self.decks.answer.pickCards();
+                    player.cards.addCard(card);
+                    card.owner = player;
+                }
             }
-        }, this);
+        }
     };
 
     /**
@@ -394,7 +405,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
             return false;
         }
 
-        console.log(player.nick + 'discarded' + cards.join(', '));
+        console.log(player.nick + ' discarded ' + cards.join(', '));
         cards = _.uniq(cards);
 
         if (self.state !== STATES.PLAYABLE || player.cards.numCards() === 0) {
@@ -416,12 +427,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
                         return false;
                     }
 
-                    for (var i = playerCards.numCards(); i < player.cards.numCards() + playerCards.numCards(); i++) {
-                        self.checkDecks();
-                        var card = self.decks.answer.pickCards();
-                        player.cards.addCard(card);
-                        card.owner = player;
-                    }
+                    self.deal(player, player.cards.numCards() + playerCards.numCards());
 
                     console.log("Added cards to hand");
 
