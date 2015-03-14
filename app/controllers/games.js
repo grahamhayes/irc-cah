@@ -281,14 +281,14 @@ var Games = function Games() {
 
     self.discard = function (client, message, cmdArgs) {
         var channel = message.args[0],
-            user = message.user,
+            nick = message.nick,
             hostname = message.host,
             game = self.findGame(channel);
 
         if (typeof game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start');
         } else {
-            var player = game.getPlayer({user: user, hostname: hostname});
+            var player = game.getPlayer({nick: nick, hostname: hostname});
 
             if (game.state === Game.STATES.PLAYABLE) {
                 game.discard(cmdArgs, player);

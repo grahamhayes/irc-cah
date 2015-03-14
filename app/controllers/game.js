@@ -433,6 +433,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
                         card.owner = player;
                     }
 
+                    self.pm(player.nick, "You have discarded, and have " + player.points + " remaining");
                     self.showCards(player);
                 }
             }
