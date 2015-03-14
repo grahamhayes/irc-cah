@@ -19,6 +19,7 @@ IRC bot that let's you play [Cards Against Humanity](http://www.cardsagainsthuma
 * **!status** - Show current status of the game. Output depends on the state of the game (e.g. when waiting for players to play, you can check who hasn't played yet)
 * **!pick** - Alias for !play and !winner commands.
 * **!p** - Alias for !pick command
+* **!discard (#)** - Discard cards once per round, at the cost of one awesome point. You can either provide no arugments to get an entirely new hand, or you can provide indices to only discard those cards. You must have at least one awesome point to discard cards.
 
 All of these commands are case insensitive and are trimmed for whitespace so "!start" and "    !StaRt" will work the same
 
@@ -92,8 +93,6 @@ This example will send you a private message when the bot has connected to serve
 	]
 }
 ```
-##TODO
-* Allow players to change one card per round or to pay one awesome point for a new hand (make it an option in config?)
 
 ##Contribute
 All contributions are welcome in any form, be it pull requests for new features and bug fixes or issue reports or anything else.
