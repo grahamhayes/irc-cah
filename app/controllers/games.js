@@ -49,7 +49,7 @@ var Games = function Games() {
      */
     self.stop = function (client, message, cmdArgs) {
         var channel = message.args[0],
-            user = message.user,
+            nick = message.nick,
             hostname = message.host,
             game = self.findGame(channel);
         if (typeof game === 'undefined') {
@@ -72,7 +72,6 @@ var Games = function Games() {
      self.pause = function(client, message, cmdArgs) {
          var channel = message.args[0],
             nick = message.nick,
-            user = message.user,
             hostname = message.host,
             game = self.findGame(channel);
         if (typeof game === 'undefined') {
@@ -94,7 +93,6 @@ var Games = function Games() {
      self.resume = function(client, message, cmdArgs) {
          var channel = message.args[0],
             nick = message.nick,
-            user = message.user,
             hostname = message.host,
             game = self.findGame(channel);
         if (typeof game === 'undefined') {
@@ -136,7 +134,7 @@ var Games = function Games() {
      */
     self.quit = function (client, message, cmdArgs) {
         var channel = message.args[0],
-            user = message.user,
+            nick = message.nick,
             hostname = message.host,
             game = self.findGame(channel);
         if (typeof game === 'undefined') {
@@ -154,7 +152,7 @@ var Games = function Games() {
      */
     self.cards = function (client, message, cmdArgs) {
         var channel = message.args[0],
-            user = message.user,
+            nick = message.nick,
             hostname = message.host,
             game = self.findGame(channel);
         if (typeof game === 'undefined') {
@@ -211,7 +209,7 @@ var Games = function Games() {
      */
     self.winner = function (client, message, cmdArgs) {
         var channel = message.args[0],
-            user = message.user,
+            nick = message.nick,
             hostname = message.host,
             game = self.findGame(channel);
         if (typeof game === 'undefined') {
@@ -261,7 +259,7 @@ var Games = function Games() {
     {
         // check if everyone has played and end the round
         var channel = message.args[0],
-            user = message.user,
+            nick = message.nick,
             hostname = message.host,
             game = self.findGame(channel);
 
