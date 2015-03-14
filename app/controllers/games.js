@@ -55,9 +55,9 @@ var Games = function Games() {
         if (typeof game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
-            var player = game.getPlayer({user: user, hostname: hostname});
+            var player = game.getPlayer({nick: nick, hostname: hostname});
             if (typeof(player) !== 'undefined') {
-                game.stop(game.getPlayer({user: user, hostname: hostname}));
+                game.stop(game.getPlayer({nick: nick, hostname: hostname}));
                 self.games = _.without(self.games, game);
             }
         }
@@ -78,7 +78,7 @@ var Games = function Games() {
         if (typeof game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
-            var player = game.getPlayer({user: user, hostname: hostname});
+            var player = game.getPlayer({nick: nick, hostname: hostname});
             if (typeof(player) !== 'undefined') {
                 game.pause();
             }
@@ -100,7 +100,7 @@ var Games = function Games() {
         if (typeof game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
-            var player = game.getPlayer({user: user, hostname: hostname});
+            var player = game.getPlayer({nick: nick, hostname: hostname});
             if (typeof(player) !== 'undefined') {
                 game.resume();
             }
@@ -142,7 +142,7 @@ var Games = function Games() {
         if (typeof game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
-            game.removePlayer(game.getPlayer({user: user, hostname: hostname}));
+            game.removePlayer(game.getPlayer({nick: nick, hostname: hostname}));
         }
     };
 
@@ -160,7 +160,7 @@ var Games = function Games() {
         if (typeof game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
-            var player = game.getPlayer({user: user, hostname: hostname});
+            var player = game.getPlayer({nick: nick, hostname: hostname});
             game.showCards(player);
         }
     };
@@ -180,7 +180,7 @@ var Games = function Games() {
         if (typeof game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
-            var player = game.getPlayer({user: user, hostname: hostname});
+            var player = game.getPlayer({nick: nick, hostname: hostname});
             if (typeof(player) !== 'undefined') {
                 game.playCard(cmdArgs, player);
             }
@@ -217,7 +217,7 @@ var Games = function Games() {
         if (typeof game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
-            var player = game.getPlayer({user: user, hostname: hostname});
+            var player = game.getPlayer({nick: nick, hostname: hostname});
             if (typeof(player) !== 'undefined') {
                 game.selectWinner(cmdArgs[0], player);
             }
@@ -268,7 +268,7 @@ var Games = function Games() {
         if (typeof game === 'undefined'){
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
-            var player = game.getPlayer({user: user, hostname: hostname});
+            var player = game.getPlayer({nick: nick, hostname: hostname});
 
             if (typeof(player) !== 'undefined') {
                 if (game.state === Game.STATES.PLAYED) {
