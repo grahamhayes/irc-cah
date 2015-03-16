@@ -225,7 +225,7 @@
   },
   {
     "type": "Question",
-    "value": "Forget everything you know about %s, ",
+    "value": "Forget everything you know about %s.",
     "keep": "Yes",
     "draw": 0,
     "pick": 1,
