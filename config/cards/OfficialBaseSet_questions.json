@@ -409,7 +409,7 @@
     },
     {
         "type": "Question",
-        "value": "When Pharoh remained unmoved. Moses called down a plague of %s.",
+        "value": "When Pharaoh remained unmoved, Moses called down a plague of %s.",
         "keep": "Yes",
         "draw": 0,
         "pick": 1,
