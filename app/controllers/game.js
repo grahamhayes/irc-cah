@@ -301,6 +301,8 @@ var Game = function Game(channel, client, config, cmdArgs) {
             if (player.inactiveRounds >= 1) {
                 self.removePlayer(player, {silent: true});
                 removedNicks.push(player.nick);
+                var pointsPlayer = _.findWhere(self.points, {nick: player.nick, hostname: player.hostname});
+                pointsPlayer.idles += 1;
             }
         });
         if (removedNicks.length > 0) {
@@ -659,10 +661,11 @@ var Game = function Game(channel, client, config, cmdArgs) {
                 nick: player.nick,
                 hostname: player.hostname,
                 player: player,
-                points: 0
+                points: 0,
+                idles: 0
                 });
             } else {
-                if (player.inactiveRounds >= config.gameOptions.idleCount) {
+                if (pointsPlayer.inactiveRounds >= config.gameOptions.idleCount) {
                     self.say(player.nick + ': You have idled too much and have been banned from this game.');
                     return false;
                 } else {
