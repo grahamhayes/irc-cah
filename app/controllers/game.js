@@ -46,6 +46,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
     self.state = STATES.STARTED; // game state storage
     self.pauseState = []; // pause state storage
     self.points = [];
+    self.idleCounts = {};
     self.notifyUsersPending = false;
     self.pointLimit = 0; // point limit for the game, defaults to 0 (== no limit)
 
@@ -281,7 +282,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
         // move cards from table to discard
         self.discards.question.addCard(self.table.question);
         self.table.question = null;
-//        var count = self.table.answer.length;
+        // var count = self.table.answer.length;
         _.each(self.table.answer, function (cards) {
             _.each(cards.getCards(), function (card) {
                 card.owner = null;
@@ -301,8 +302,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
             if (player.inactiveRounds >= 1) {
                 self.removePlayer(player, {silent: true});
                 removedNicks.push(player.nick);
-                var pointsPlayer = _.findWhere(self.points, {nick: player.nick, hostname: player.hostname});
-                pointsPlayer.idles += 1;
+                self.idleCounts[player.nick]++;
             }
         });
         if (removedNicks.length > 0) {
@@ -657,15 +657,14 @@ var Game = function Game(channel, client, config, cmdArgs) {
             // Returning players
             var pointsPlayer = _.findWhere(self.points, {nick: player.nick, hostname: player.hostname});
             if (typeof pointsPlayer === 'undefined') {
-                self.points.push({
-                nick: player.nick,
-                hostname: player.hostname,
-                player: player,
-                points: 0,
-                idles: 0
+                    self.points.push({
+                    nick: player.nick,
+                    hostname: player.hostname,
+                    player: player,
+                    points: 0
                 });
             } else {
-                if (pointsPlayer.inactiveRounds >= config.gameOptions.idleCount) {
+                if (self.idleCounts[player.nick] >= config.gameOptions.idleCount) {
                     self.say(player.nick + ': You have idled too much and have been banned from this game.');
                     return false;
                 } else {
