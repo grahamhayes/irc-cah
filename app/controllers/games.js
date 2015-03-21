@@ -130,7 +130,7 @@ var Games = function Games() {
         if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
-            self.game.removePlayer(game.getPlayer({nick: nick, hostname: hostname}));
+            self.game.removePlayer(self.game.getPlayer({nick: nick, hostname: hostname}));
         }
     };
 
@@ -148,7 +148,7 @@ var Games = function Games() {
         if (typeof seelf.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
-            var player = game.getPlayer({nick: nick, hostname: hostname});
+            var player = self.game.getPlayer({nick: nick, hostname: hostname});
             game.showCards(player);
         }
     };
