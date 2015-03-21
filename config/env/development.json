@@ -11,7 +11,7 @@
         "pointLimit":    10,
         "idleLimit": 2,
         "secondsBeforeStart": 60,
-        "roundMinutes": 300
+        "roundMinutes": 6
     },
 
     "connectCommands": [
