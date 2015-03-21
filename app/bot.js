@@ -87,15 +87,17 @@ exports.init = function () {
         }
 
         // public commands
-        _.each(commands, function (c) {
-            if (cmd === c.cmd) {
-                console.log('command: ' + c.cmd);
-                // check user mode
-                if (checkUserMode(message, c.mode)) {
-                    c.callback(client, message, cmdArgs);
+        if (config.clientOptions.channels.indexOf(to) >= 0) {
+            _.each(commands, function (c) {
+                if (cmd === c.cmd) {
+                    console.log('command: ' + c.cmd);
+                    // check user mode
+                    if (checkUserMode(message, c.mode)) {
+                        c.callback(client, message, cmdArgs);
+                    }
                 }
-            }
-        }, this);
+            }, this);
+        }
     });
 
     client.addListener('pm', function (from, text, message) {
