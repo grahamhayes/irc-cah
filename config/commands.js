@@ -2,6 +2,8 @@ var Games = require('../app/controllers/games.js');
 
 module.exports = function(app) {
     var games = new Games();
+
+    // Public commands
     app.cmd('start', '', games.start);
     app.cmd('stop', 'o', games.stop);
     app.cmd('join', '', games.join);
@@ -20,4 +22,9 @@ module.exports = function(app) {
     app.cmd('pick', '', games.pick);
     app.cmd('p', '', games.pick);
     app.cmd('discard', '', games.discard);
+
+    // Private commands
+    app.msg('play', '', games.play);
+    app.msg('pick', '', games.pick);
+    app.msg('p', '', games.pick);
 };
