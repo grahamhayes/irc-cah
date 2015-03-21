@@ -329,7 +329,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
         self.table.question = card;
 
         // PM Card to players
-        _.each(self.players, function(player) {
+        _.each(_.where(self.players, {isCzar: false}), function(player) {
             self.pm(player.nick, c.bold('CARD: ') + value);
         });
 
@@ -652,28 +652,25 @@ var Game = function Game(channel, client, config, cmdArgs) {
      */
     self.addPlayer = function (player) {
         if (typeof self.getPlayer({nick: player.nick, hostname: player.hostname}) === 'undefined') {
-            self.players.push(player);
-            self.say(player.nick + ' has joined the game');
-            // check if player is returning to game
+            // Returning players
             var pointsPlayer = _.findWhere(self.points, {nick: player.nick, hostname: player.hostname});
-            if (typeof pointsPlayer === 'undefined') {
-                // new player
-                self.points.push({
-                    nick:     player.nick, // user and hostname are used for matching returning players
-                    hostname: player.hostname,
-                    player:   player, // reference to player object saved to points object as well
-                    points:   0
-                });
-            } else {
-                // returning player
-                if (player.inactiveRounds < config.gameOptions.idleCount) {
-                    pointsPlayer.player = player;
-                    player.points = pointsPlayer.points;
-                } else {
+            if (typeof pointsPlayer !== 'undefined') {
+                if (player.inactiveRounds >= config.gameOptions.idleCount) {
                     self.say(player.nick + ': You have idled too much and have been banned from this game.');
                     return false;
+                } else {
+                    self.points.push({
+                        nick: player.nick,
+                        hostname: player.hostname,
+                        player: player,
+                        points: 0
+                    });
                 }
             }
+
+            self.players.push(player);
+            self.say(player.nick + ' has joined the game');
+
             // check if waiting for players
             if (self.state === STATES.WAITING && self.players.length >= 3) {
                 // enough players, start the game
