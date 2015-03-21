@@ -654,7 +654,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
         if (typeof self.getPlayer({nick: player.nick, hostname: player.hostname}) === 'undefined') {
             // Returning players
             var pointsPlayer = _.findWhere(self.points, {nick: player.nick, hostname: player.hostname});
-            if (typeof pointsPlayer !== 'undefined') {
+            if (typeof pointsPlayer === 'undefined') {
                 if (player.inactiveRounds >= config.gameOptions.idleCount) {
                     self.say(player.nick + ': You have idled too much and have been banned from this game.');
                     return false;
@@ -666,6 +666,9 @@ var Game = function Game(channel, client, config, cmdArgs) {
                         points: 0
                     });
                 }
+            } else {
+                pointsPlayer.player = player;
+                player.points = pointsPlayer.points;
             }
 
             self.players.push(player);
@@ -676,6 +679,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
                 // enough players, start the game
                 self.nextRound();
             }
+
             return player;
         }
 
