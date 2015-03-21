@@ -327,6 +327,12 @@ var Game = function Game(channel, client, config, cmdArgs) {
         }
         self.say(c.bold('CARD: ') + value);
         self.table.question = card;
+
+        // PM Card to players
+        _.each(self.players, function(player) {
+            self.pm(player.nick, c.bold('CARD: ') + value);
+        });
+
         // draw cards
         if (self.table.question.draw > 0) {
             _.each(_.where(self.players, {isCzar: false}), function (player) {
