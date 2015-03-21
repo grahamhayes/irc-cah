@@ -667,7 +667,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
                 });
                 self.idleCounts[player.nick] = 0;
             } else {
-                if (self.idleCounts[player.nick] >= config.gameOptions.idleCount) {
+                if (self.idleCounts[player.nick] >= config.gameOptions.idleLimit) {
                     self.say(player.nick + ': You have idled too much and have been banned from this game.');
                     return false;
                 } else {
