@@ -111,7 +111,7 @@ exports.init = function () {
 
         var cmd = cmdArr[1].toLowerCase();
         if (cmdArr.length > 2) {
-            cmdArgs = _.map(cmdArr[2].match(/(\w+)\s?/gi) function (str) {
+            cmdArgs = _.map(cmdArr[2].match(/(\w+)\s?/gi), function (str) {
                 return str.trim();
             });
         }
