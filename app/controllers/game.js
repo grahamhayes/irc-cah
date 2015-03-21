@@ -79,9 +79,9 @@ var Game = function Game(channel, client, config, cmdArgs) {
     self.decks.answer.shuffle();
 
     // parse point limit from configuration file
-    if(typeof config.pointLimit !== 'undefined' && !isNaN(config.pointLimit)) {
-        console.log('Set game point limit to ' + config.pointLimit + ' from config');
-        self.pointLimit = parseInt(config.pointLimit);
+    if(typeof config.gameOptions.pointLimit !== 'undefined' && !isNaN(config.gameOptions.pointLimit)) {
+        console.log('Set game point limit to ' + config.gameOptions.pointLimit + ' from config');
+        self.pointLimit = parseInt(config.gameOptions.pointLimit);
     }
     // parse point limit from command arguments
     if(typeof cmdArgs[0] !==  'undefined' && !isNaN(cmdArgs[0])) {
@@ -463,7 +463,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
     self.turnTimerCheck = function () {
         // check the time
         var now = new Date();
-        var timeLimit = 6 * 60 * 1000;
+        var timeLimit = 60 * 1000 * config.gameOptions.roundMinutes;
         var roundElapsed = (now.getTime() - self.roundStarted.getTime());
         console.log('Round elapsed:', roundElapsed, now.getTime(), self.roundStarted.getTime());
         if (roundElapsed >= timeLimit) {
@@ -533,7 +533,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
     self.winnerTimerCheck = function () {
         // check the time
         var now = new Date();
-        var timeLimit = 6 * 60 * 1000;
+        var timeLimit = 60 * 1000 * config.gameOptions.roundMinutes;
         var roundElapsed = (now.getTime() - self.roundStarted.getTime());
         console.log('Winner selection elapsed:', roundElapsed, now.getTime(), self.roundStarted.getTime());
         if (roundElapsed >= timeLimit) {
@@ -787,7 +787,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
      */
     self.showStatus = function () {
         var playersNeeded = Math.max(0, 3 - self.players.length), // amount of player needed to start the game
-            timeLeft = 60 - Math.round((new Date().getTime() - self.startTime.getTime()) / 1000), // time left until first round
+            timeLeft = config.gameOptions.secondsBeforeStart - Math.round((new Date().getTime() - self.startTime.getTime()) / 1000),
             activePlayers = _.filter(self.players, function (player) {
                 // only players with cards in hand are active
                 return player.cards.numCards() > 0;
@@ -824,14 +824,14 @@ var Game = function Game(channel, client, config, cmdArgs) {
      */
     self.setTopic = function (topic) {
         // ignore if not configured to set topic
-        if (typeof config.setTopic === 'undefined' || !config.setTopic) {
+        if (typeof config.gameOptions.setTopic === 'undefined' || !config.gameOptionssetTopic) {
             return false;
         }
 
         // construct new topic
         var newTopic = topic;
-        if (typeof config.topicBase !== 'undefined') {
-            newTopic = topic + ' ' + config.topicBase;
+        if (typeof config.gameOptions.topicBase !== 'undefined') {
+            newTopic = topic + ' ' + config.gameOptions.topicBase;
         }
 
         // set it
@@ -933,7 +933,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
 
         // loop through and send messages
         _.each(nicks, function(mode, nick) {
-            if (_.indexOf(exemptModes, mode) < 0 && nick !== config.nick) {
+            if (_.indexOf(exemptModes, mode) < 0 && nick !== config.botOptions.nick) {
                 self.notice(nick, nick + ': A new game of Cards Against Humanity just began in ' + channel + '. Head over and !join if you\'d like to get in on the fun!');
             }
         });
@@ -965,13 +965,13 @@ var Game = function Game(channel, client, config, cmdArgs) {
     self.say('A new game of ' + c.rainbow('Cards Against Humanity') + '. The game starts in 60 seconds. Type !join to join the game any time.');
 
     // notify users
-    if (typeof config.notifyUsers !== 'undefined' && config.notifyUsers) {
+    if (typeof config.gameOptions.notifyUsers !== 'undefined' && config.gameOptions.notifyUsers) {
         self.notifyUsers();
     }
 
     // wait for players to join
     self.startTime = new Date();
-    self.startTimeout = setTimeout(self.nextRound, 60000);
+    self.startTimeout = setTimeout(self.nextRound, config.gameOptions.secondsBeforeStart * 1000);
 
     // client listeners
     client.addListener('part', self.playerPartHandler);

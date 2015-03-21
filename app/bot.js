@@ -17,8 +17,8 @@ exports.init = function () {
     var self = this;
     console.log('Initializing...');
     // init irc client
-    console.log('Connecting to ' + config.server + ' as ' + config.nick + '...');
-    client = new irc.Client(config.server, config.nick, config.clientOptions);
+    console.log('Connecting to ' + config.botOptions.server + ' as ' + config.botOptions.nick + '...');
+    client = new irc.Client(config.botOptions.server, config.botOptions.nick, config.clientOptions);
 
     // handle connection to server for logging
     client.addListener('registered', function (message) {
@@ -45,19 +45,19 @@ exports.init = function () {
             });
         }
 
-        if (config.setTopic && nick === config.nick) {
+        if (config.gameOptions.setTopic && nick === config.botOptions.nick) {
             console.log("Setting topic for channel");
 
             // ignore if not configured to set topic
-            if (typeof config.setTopic === 'undefined' || !config.setTopic) {
+            if (typeof config.gameOptions.setTopic === 'undefined' || !config.gameOptions.setTopic) {
                 return false;
             }
 
             // construct new topic
             var topic = c.bold.yellow('No game is running. Type !start to begin one!');
             var newTopic = topic;
-            if (typeof config.topicBase !== 'undefined') {
-                newTopic = topic + ' ' + config.topicBase;
+            if (typeof config.gameOptions.topicBase !== 'undefined') {
+                newTopic = topic + ' ' + config.gameOptions.topicBase;
             }
 
             client.send('TOPIC', channel, newTopic);
@@ -98,7 +98,7 @@ exports.init = function () {
                     }
                 }
             }, this);
-        } else if (config.nick === to) {
+        } else if (config.botOptions.nick === to) {
             // private message commands
             _.each(msgs, function (c) {
                 if (cmd === c.cmd) {
@@ -114,14 +114,14 @@ exports.init = function () {
 
     self.setTopic = function (topic) {
         // ignore if not configured to set topic
-        if (typeof config.setTopic === 'undefined' || !config.setTopic) {
+        if (typeof config.gameOptions.setTopic === 'undefined' || !config.gameOptions.setTopic) {
             return false;
         }
 
         // construct new topic
         var newTopic = topic;
-        if (typeof config.topicBase !== 'undefined') {
-            newTopic = topic + ' ' + config.topicBase;
+        if (typeof config.gameOptions.topicBase !== 'undefined') {
+            newTopic = topic + ' ' + config.gameOptions.topicBase;
         }
 
         // set it

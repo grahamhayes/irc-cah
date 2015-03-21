@@ -1,29 +1,40 @@
 {
-    "server": "irc.saunalahti.fi",
-    "nick": "cah-dev",
-    "setTopic": true,
-    "topicBase": "|| This will be appended to the topic along with the game status.",
-    "notifyUsers": true,
-    "pointLimit": 1,
+    "botOptions": {
+        "server":        "openirc.snt.utwente.nl",
+        "nick":          "cah"
+    },
+
+    "gameOptions": {
+        "setTopic":      true,
+        "topicBase":     "|| This will be appended to the topic along with the game status.",
+        "notifyUsers":   false,
+        "pointLimit":    10,
+        "idleLimit": 2,
+        "secondsBeforeStart": 60,
+        "roundMinutes": 300
+    },
+
     "connectCommands": [
         {
             "target": "",
             "message": ""
         }
     ],
+
     "joinCommands": {
-        "#pi-cah-dev": [
+        "#cah": [
             {
-                "target": "#pi-cah-dev",
-                "message": "Hello guys"
+                "target": "",
+                "message": ""
             }
         ]
     },
+
     "clientOptions": {
-        "userName": "cah",
+        "userName":             "cah",
+        "channels":             ["#cah-dev"],
         "debug": true,
-        "channels": ["#pi-cah-dev"],
-        "floodProtection": true,
-        "floodProtectionDelay": 2000
+        "floodProtection":      true,
+        "floodProtectionDelay": 1000
     }
 }
