@@ -116,7 +116,7 @@ exports.init = function () {
             });
         }
 
-        _.each(messages, function (m) {
+        _.each(msgs, function (m) {
             if (cmd = m.cmd) {
                 console.log('command: ' + c.cmd);
                 c.callback(client, message, cmdArgs);
