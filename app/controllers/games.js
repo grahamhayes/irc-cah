@@ -5,16 +5,7 @@ var _ = require('underscore'),
 
 var Games = function Games() {
     var self = this;
-    self.games = [];
-
-    /**
-     * Find a game by channel it is running on
-     * @param channel
-     * @returns {*}
-     */
-    self.findGame = function (channel) {
-        return _.findWhere(self.games, {channel: channel});
-    };
+    self.game;
 
     /**
      * Start a game
@@ -29,15 +20,15 @@ var Games = function Games() {
             user = message.user,
             hostname = message.host;
 
-        if (typeof self.findGame(channel) !== 'undefined') {
+        if (typeof self.game !== 'undefined') {
             // game exists
             client.say(channel, 'A game is already running. Type !join to join the game.');
         } else {
             // init game
-            var game = new Game(channel, client, config, cmdArgs);
-            self.games.push(game);
+            var new_game = new Game(channel, client, config, cmdArgs);
+            self.game = new_game;
             var player = new Player(nick, user, hostname);
-            game.addPlayer(player);
+            self.game.addPlayer(player);
         }
     };
 
@@ -51,14 +42,14 @@ var Games = function Games() {
         var channel = message.args[0],
             nick = message.nick,
             hostname = message.host,
-            game = self.findGame(channel);
-        if (typeof game === 'undefined') {
+
+        if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
-            var player = game.getPlayer({nick: nick, hostname: hostname});
+            var player = self.game.getPlayer({nick: nick, hostname: hostname});
             if (typeof(player) !== 'undefined') {
-                game.stop(game.getPlayer({nick: nick, hostname: hostname}));
-                self.games = _.without(self.games, game);
+                self.game.stop(self.game.getPlayer({nick: nick, hostname: hostname}));
+                self.game = undefined;
             }
         }
     };
@@ -73,13 +64,13 @@ var Games = function Games() {
          var channel = message.args[0],
             nick = message.nick,
             hostname = message.host,
-            game = self.findGame(channel);
-        if (typeof game === 'undefined') {
+
+        if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
-            var player = game.getPlayer({nick: nick, hostname: hostname});
+            var player = self.game.getPlayer({nick: nick, hostname: hostname});
             if (typeof(player) !== 'undefined') {
-                game.pause();
+                self.game.pause();
             }
         }
      };
@@ -94,13 +85,13 @@ var Games = function Games() {
          var channel = message.args[0],
             nick = message.nick,
             hostname = message.host,
-            game = self.findGame(channel);
-        if (typeof game === 'undefined') {
+
+        if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
-            var player = game.getPlayer({nick: nick, hostname: hostname});
+            var player = self.game.getPlayer({nick: nick, hostname: hostname});
             if (typeof(player) !== 'undefined') {
-                game.resume();
+                self.game.resume();
             }
         }
      };
@@ -116,13 +107,12 @@ var Games = function Games() {
             nick = message.nick,
             user = message.user,
             hostname = message.host,
-            game = self.findGame(channel);
 
-        if (typeof game === 'undefined') {
+        if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
             var player = new Player(nick, user, hostname);
-            game.addPlayer(player);
+            self.game.addPlayer(player);
         }
     };
 
@@ -136,11 +126,11 @@ var Games = function Games() {
         var channel = message.args[0],
             nick = message.nick,
             hostname = message.host,
-            game = self.findGame(channel);
-        if (typeof game === 'undefined') {
+
+        if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
-            game.removePlayer(game.getPlayer({nick: nick, hostname: hostname}));
+            self.game.removePlayer(game.getPlayer({nick: nick, hostname: hostname}));
         }
     };
 
@@ -154,8 +144,8 @@ var Games = function Games() {
         var channel = message.args[0],
             nick = message.nick,
             hostname = message.host,
-            game = self.findGame(channel);
-        if (typeof game === 'undefined') {
+
+        if (typeof seelf.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
             var player = game.getPlayer({nick: nick, hostname: hostname});
@@ -174,13 +164,13 @@ var Games = function Games() {
         var channel = message.args[0],
             user = message.user,
             hostname = message.host,
-            game = self.findGame(channel);
-        if (typeof game === 'undefined') {
+
+        if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
-            var player = game.getPlayer({nick: nick, hostname: hostname});
+            var player = self.game.getPlayer({nick: nick, hostname: hostname});
             if (typeof(player) !== 'undefined') {
-                game.playCard(cmdArgs, player);
+                self.game.playCard(cmdArgs, player);
             }
         }
     };
@@ -193,11 +183,11 @@ var Games = function Games() {
      */
     self.list = function (client, message, cmdArgs) {
         var channel = message.args[0],
-            game = self.findGame(channel);
-        if (typeof game === 'undefined') {
+
+        if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
-            game.listPlayers();
+            self.game.listPlayers();
         }
     };
 
@@ -211,13 +201,13 @@ var Games = function Games() {
         var channel = message.args[0],
             nick = message.nick,
             hostname = message.host,
-            game = self.findGame(channel);
-        if (typeof game === 'undefined') {
+
+        if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
-            var player = game.getPlayer({nick: nick, hostname: hostname});
+            var player = self.game.getPlayer({nick: nick, hostname: hostname});
             if (typeof(player) !== 'undefined') {
-                game.selectWinner(cmdArgs[0], player);
+                self.game.selectWinner(cmdArgs[0], player);
             }
         }
     };
@@ -231,11 +221,11 @@ var Games = function Games() {
     self.points = function (client, message, cmdArgs) {
         var channel = message.args[0],
             hostname = message.host,
-            game = self.findGame(channel);
-        if (typeof game === 'undefined') {
+
+        if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
-            game.showPoints();
+            self.game.showPoints();
         }
     };
 
@@ -247,11 +237,11 @@ var Games = function Games() {
      */
     self.status = function(client, message, cmdArgs) {
         var channel = message.args[0],
-            game = self.findGame(channel);
-        if (typeof game === 'undefined') {
+
+        if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
-            game.showStatus();
+            self.game.showStatus();
         }
     };
 
@@ -260,18 +250,17 @@ var Games = function Games() {
         var channel = message.args[0],
             nick = message.nick,
             hostname = message.host,
-            game = self.findGame(channel);
 
-        if (typeof game === 'undefined'){
+        if (typeof self.game === 'undefined'){
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
-            var player = game.getPlayer({nick: nick, hostname: hostname});
+            var player = self.game.getPlayer({nick: nick, hostname: hostname});
 
             if (typeof(player) !== 'undefined') {
-                if (game.state === Game.STATES.PLAYED) {
-                    game.selectWinner(cmdArgs[0], player);
-                } else if (game.state === Game.STATES.PLAYABLE) {
-                    game.playCard(cmdArgs, player);
+                if (self.game.state === Game.STATES.PLAYED) {
+                    self.game.selectWinner(cmdArgs[0], player);
+                } else if (self.game.state === Game.STATES.PLAYABLE) {
+                    self.game.playCard(cmdArgs, player);
                 } else {
                     client.say(channel, '!pick command not available in current state.');
                 }
@@ -283,15 +272,14 @@ var Games = function Games() {
         var channel = message.args[0],
             nick = message.nick,
             hostname = message.host,
-            game = self.findGame(channel);
 
-        if (typeof game === 'undefined') {
+        if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start');
         } else {
-            var player = game.getPlayer({nick: nick, hostname: hostname});
+            var player = self.game.getPlayer({nick: nick, hostname: hostname});
 
-            if (game.state === Game.STATES.PLAYABLE) {
-                game.discard(cmdArgs, player);
+            if (self.game.state === Game.STATES.PLAYABLE) {
+                self.game.discard(cmdArgs, player);
             } else {
                 client.say(channel, '!discard command not available in current state');
             }
