@@ -660,8 +660,13 @@ var Game = function Game(channel, client, config, cmdArgs) {
                 });
             } else {
                 // returning player
-                pointsPlayer.player = player;
-                player.points = pointsPlayer.points;
+                if (player.inactiveRounds < config.gameOptions.idleCount) {
+                    pointsPlayer.player = player;
+                    player.points = pointsPlayer.points;
+                } else {
+                    self.say(player.nick + ': You have idled too much and have been banned from this game.');
+                    return false;
+                }
             }
             // check if waiting for players
             if (self.state === STATES.WAITING && self.players.length >= 3) {
