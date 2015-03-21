@@ -41,7 +41,7 @@ var Games = function Games() {
     self.stop = function (client, message, cmdArgs) {
         var channel = message.args[0],
             nick = message.nick,
-            hostname = message.host,
+            hostname = message.host;
 
         if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
@@ -63,7 +63,7 @@ var Games = function Games() {
      self.pause = function(client, message, cmdArgs) {
          var channel = message.args[0],
             nick = message.nick,
-            hostname = message.host,
+            hostname = message.host;
 
         if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
@@ -84,7 +84,7 @@ var Games = function Games() {
      self.resume = function(client, message, cmdArgs) {
          var channel = message.args[0],
             nick = message.nick,
-            hostname = message.host,
+            hostname = message.host;
 
         if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
@@ -106,7 +106,7 @@ var Games = function Games() {
         var channel = message.args[0],
             nick = message.nick,
             user = message.user,
-            hostname = message.host,
+            hostname = message.host;
 
         if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
@@ -125,7 +125,7 @@ var Games = function Games() {
     self.quit = function (client, message, cmdArgs) {
         var channel = message.args[0],
             nick = message.nick,
-            hostname = message.host,
+            hostname = message.host;
 
         if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
@@ -143,7 +143,7 @@ var Games = function Games() {
     self.cards = function (client, message, cmdArgs) {
         var channel = message.args[0],
             nick = message.nick,
-            hostname = message.host,
+            hostname = message.host;
 
         if (typeof seelf.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
@@ -163,7 +163,7 @@ var Games = function Games() {
         // check if everyone has played and end the round
         var channel = message.args[0],
             user = message.user,
-            hostname = message.host,
+            hostname = message.host;
 
         if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
@@ -182,7 +182,7 @@ var Games = function Games() {
      * @param cmdArgs
      */
     self.list = function (client, message, cmdArgs) {
-        var channel = message.args[0],
+        var channel = message.args[0];
 
         if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
@@ -200,7 +200,7 @@ var Games = function Games() {
     self.winner = function (client, message, cmdArgs) {
         var channel = message.args[0],
             nick = message.nick,
-            hostname = message.host,
+            hostname = message.host;
 
         if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
@@ -220,7 +220,7 @@ var Games = function Games() {
      */
     self.points = function (client, message, cmdArgs) {
         var channel = message.args[0],
-            hostname = message.host,
+            hostname = message.host;
 
         if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
@@ -236,7 +236,7 @@ var Games = function Games() {
      * @param cmdArgs
      */
     self.status = function(client, message, cmdArgs) {
-        var channel = message.args[0],
+        var channel = message.args[0];
 
         if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
@@ -249,7 +249,7 @@ var Games = function Games() {
         // check if everyone has played and end the round
         var channel = message.args[0],
             nick = message.nick,
-            hostname = message.host,
+            hostname = message.host;
 
         if (typeof self.game === 'undefined'){
             client.say(channel, 'No game running. Start the game by typing !start.');
@@ -271,7 +271,7 @@ var Games = function Games() {
     self.discard = function (client, message, cmdArgs) {
         var channel = message.args[0],
             nick = message.nick,
-            hostname = message.host,
+            hostname = message.host;
 
         if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start');
