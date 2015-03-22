@@ -217,7 +217,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
         // check that there's enough players in the game
         if (self.players.length < 3) {
             self.say('Not enough players to start a round (need at least 3). Waiting for others to join. Stopping in ' +
-                config.gameOptions.roundMinutes + inflection.inflect('minutes', config.gameOptions.roundMinutes) + ' if not enough players.');
+                config.gameOptions.roundMinutes + ' ' + inflection.inflect('minutes', config.gameOptions.roundMinutes) + ' if not enough players.');
             self.state = STATES.WAITING;
             // stop game if not enough pleyers in however many minutes in the config
             self.stopTimeout = setTimeout(self.stop, 60 * 1000 * config.gameOptions.roundMinutes);
