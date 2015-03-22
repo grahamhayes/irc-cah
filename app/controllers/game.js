@@ -460,7 +460,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
                     player.hasDiscarded = true;
                     player.points -= 1;
 
-                    self.pm(player.nick, 'You have discarded, and have ' + player.points + ' '
+                    self.pm(player.nick, 'You have discarded, and have ' + player.points + ' ' +
                         inflection.inflect('points', player.points) + ' remaining');
                     self.showCards(player);
                 }
