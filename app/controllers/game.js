@@ -214,10 +214,11 @@ var Game = function Game(channel, client, config, cmdArgs) {
 
         // check that there's enough players in the game
         if (self.players.length < 3) {
-            self.say('Not enough players to start a round (need at least 3). Waiting for others to join. Stopping in 6 minutes if not enough players.');
+            self.say('Not enough players to start a round (need at least 3). Waiting for others to join. Stopping in ' +
+                config.gameOptions.roundMinutes + ' minutes if not enough players.');
             self.state = STATES.WAITING;
             // stop game if not enough pleyers in 3 minutes
-            self.stopTimeout = setTimeout(self.stop, 6 * 60 * 1000);
+            self.stopTimeout = setTimeout(self.stop, 60 * 1000 * config.gameOptions.roundMinutes);
             return false;
         }
         self.round++;
@@ -302,9 +303,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
             if (player.inactiveRounds >= 1) {
                 self.removePlayer(player, {silent: true});
                 removedNicks.push(player.nick);
-                console.log('player idle count before: ' + self.idleCounts[player.nick]);
                 self.idleCounts[player.nick]++;
-                console.log('player idle count after: ' + self.idleCounts[player.nick]);
             }
         });
         if (removedNicks.length > 0) {
