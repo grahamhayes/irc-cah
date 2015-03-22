@@ -257,7 +257,7 @@ var Games = function Games() {
             var player = self.game.getPlayer({nick: nick, hostname: hostname});
 
             if (typeof(player) !== 'undefined') {
-                if (self.game.state === Game.STATES.PLAYED) {
+                if (self.game.state === Game.STATES.PLAYED && channel === self.game.channel) {
                     self.game.selectWinner(cmdArgs[0], player);
                 } else if (self.game.state === Game.STATES.PLAYABLE) {
                     self.game.playCard(cmdArgs, player);
