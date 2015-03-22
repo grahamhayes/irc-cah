@@ -207,8 +207,8 @@ var Game = function Game(channel, client, config, cmdArgs) {
         if(self.pointLimit > 0) {
             var winner = _.findWhere(self.players, {points: self.pointLimit});
             if(winner) {
-                // INFLECT
-                self.say(winner.nick + ' has the limit of ' + self.pointLimit + ' awesome points and is the winner of the game! Congratulations!');
+                self.say(winner.nick + ' has the limit of ' + self.pointLimit + ' awesome ' +
+                    inflection.inflect('points', self.pointLimit) + 'and is the winner of the game! Congratulations!');
                 self.stop(null, true);
                 return false;
             }
@@ -216,9 +216,8 @@ var Game = function Game(channel, client, config, cmdArgs) {
 
         // check that there's enough players in the game
         if (self.players.length < 3) {
-            // INFLECT
             self.say('Not enough players to start a round (need at least 3). Waiting for others to join. Stopping in ' +
-                config.gameOptions.roundMinutes + ' minutes if not enough players.');
+                config.gameOptions.roundMinutes + inflection.inflect('minutes', config.gameOptions.roundMinutes) + ' if not enough players.');
             self.state = STATES.WAITING;
             // stop game if not enough pleyers in however many minutes in the config
             self.stopTimeout = setTimeout(self.stop, 60 * 1000 * config.gameOptions.roundMinutes);
@@ -309,9 +308,9 @@ var Game = function Game(channel, client, config, cmdArgs) {
                 self.idleCounts[player.nick]++;
             }
         });
+
         if (removedNicks.length > 0) {
-            // INFLECT
-            self.say('Removed inactive players: ' + removedNicks.join(', '));
+            self.say('Removed inactive ' + inflection.inflect('players', removedNicks.length) + ': ' + removedNicks.join(', '));
         }
         // reset state
         self.state = STATES.STARTED;
@@ -382,8 +381,8 @@ var Game = function Game(channel, client, config, cmdArgs) {
                     self.say(player.nick + ': You have already played on this round.');
                 } else if (cards.length != self.table.question.pick) {
                     // invalid card count
-                    // INFLECT
-                    self.say(player.nick + ': You must pick ' + self.table.question.pick + ' different cards.');
+                    self.say(player.nick + ': You must pick '
+                        + inflection.inflect('cards', self.table.question.pick, '1 card', self.table.question.pick + ' different cards') + '.');
                 } else {
                     // get played cards
                     var playerCards;
@@ -461,8 +460,8 @@ var Game = function Game(channel, client, config, cmdArgs) {
                     player.hasDiscarded = true;
                     player.points -= 1;
 
-                    // INFLECT
-                    self.pm(player.nick, "You have discarded, and have " + player.points + " points remaining");
+                    self.pm(player.nick, 'You have discarded, and have ' + player.points + ' '
+                        inflection.inflect('points', player.points) + ' remaining');
                     self.showCards(player);
                 }
             }
@@ -598,13 +597,9 @@ var Game = function Game(channel, client, config, cmdArgs) {
                 // update points object
                 _.findWhere(self.points, {player: owner}).points = owner.points;
                 // announce winner
-                // INFLECT
-                if (owner.points === 1) {
-                    self.say(c.bold('Winner is: ') + owner.nick + ' with "' + self.getFullEntry(self.table.question, winner.getCards()) + '" and gets one awesome point! ' + owner.nick + ' has ' + owner.points + ' awesome point.');
-                }
-                else {
-                    self.say(c.bold('Winner is: ') + owner.nick + ' with "' + self.getFullEntry(self.table.question, winner.getCards()) + '" and gets one awesome point! ' + owner.nick + ' has ' + owner.points + ' awesome points.');
-                }
+                self.say(c.bold('Winner is: ') + owner.nick + ' with "' + self.getFullEntry(self.table.question, winner.getCards()) +
+                    '" and gets one awesome point! ' + owner.nick + ' has ' + owner.points + ' awesome ' + inflection.inflect('point', owner.points) + '.');
+
                 self.clean();
                 self.nextRound();
             }
@@ -819,8 +814,8 @@ var Game = function Game(channel, client, config, cmdArgs) {
             notPlayed = _.where(activePlayers, {isCzar: false, hasPlayed: false}); // players who have not played yet
         switch (self.state) {
             case STATES.PLAYABLE:
-                // INFLECT
-                self.say(c.bold('Status: ') + self.czar.nick + ' is the czar. Waiting for players to play: ' + _.pluck(notPlayed, 'nick').join(', '));
+                self.say(c.bold('Status: ') + self.czar.nick + ' is the czar. Waiting for ' +
+                    inflection.inflect('players', _.pluck(notPlayed, 'nick').length) + ' to play: ' + _.pluck(notPlayed, 'nick').join(', '));
                 break;
             case STATES.PLAYED:
                 self.say(c.bold('Status: ') + 'Waiting for ' + self.czar.nick + ' to select the winner.');
@@ -829,15 +824,15 @@ var Game = function Game(channel, client, config, cmdArgs) {
                 self.say(c.bold('Status: ') + 'Round has ended and next one is starting.');
                 break;
             case STATES.STARTED:
-                // INFLECT
-                self.say(c.bold('Status: ') + 'Game starts in ' + timeLeft + ' seconds. Need ' + playersNeeded + ' more players to start.');
+                self.say(c.bold('Status: ') + 'Game starts in ' + timeLeft + ' ' + inflection.inflect('seconds', timeLeft) + '. Need ' +
+                    playersNeeded + ' more ' + inflection.inflect('players', playersNeeded) + ' to start.');
                 break;
             case STATES.STOPPED:
                 self.say(c.bold('Status: ') + 'Game has been stopped.');
                 break;
             case STATES.WAITING:
-                // INFLECT
-                self.say(c.bold('Status: ') + 'Not enough players to start. Need ' + playersNeeded + ' more players to start.');
+                self.say(c.bold('Status: ') + 'Not enough players to start. Need ' + playersNeeded + ' more ' +
+                    inflection.inflect('players', playersNeeded) + ' to start.');
                 break;
             case STATES.PAUSED:
                 self.say(c.bold('Status: ') + 'Game is paused.');
@@ -988,9 +983,8 @@ var Game = function Game(channel, client, config, cmdArgs) {
     self.setTopic(c.bold.lime('A game is running. Type !join to get in on it!'));
 
     // announce the game on the channel
-    // INFLECT
     self.say('A new game of ' + c.rainbow('Cards Against Humanity') + '. The game starts in ' + config.gameOptions.secondsBeforeStart
-        + ' seconds. Type !join to join the game any time.');
+        + ' ' + inflection.inflect('seconds', config.gameOptions.secondsBeforeStart) + '. Type !join to join the game any time.');
 
     // notify users
     if (typeof config.gameOptions.notifyUsers !== 'undefined' && config.gameOptions.notifyUsers) {
