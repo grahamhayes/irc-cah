@@ -117,6 +117,10 @@ var cardFiles = {
     NotSafeForHumanityExpansionQuestions: __dirname + '/../config/cards/NotSafeForHumanityExpansion_questions.json',
     NotSafeForHumanityExpansionAnswers: __dirname + '/../config/cards/NotSafeForHumanityExpansion_answers.json',
 
+    // Doctor Who Expansion
+    DoctorWhoExpansionQuestions: __dirname + '/../config/cards/DoctorWhoExpansion_questions.json',
+    DoctorWhoExpansionAnswers: __dirname + '/../config/cards/DoctorWhoExpansion_answers.json',
+
     // Redbrick set
     // RedbrickQuestions: __dirname + '/../config/cards/Redbrick'
     RedbrickAnswers: __dirname + '/../config/cards/Redbrick_answers.json',
