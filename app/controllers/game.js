@@ -301,8 +301,8 @@ var Game = function Game(channel, client, config, cmdArgs) {
             player.hasPlayed = false;
             player.hasDiscarded = false;
             player.isCzar = false;
-            // check inactive count & remove after 3
-            if (player.inactiveRounds >= 1) {
+            // check if idled and remove
+            if (player.idled) {
                 self.removePlayer(player, {silent: true});
                 removedNicks.push(player.nick);
                 self.idleCounts[player.nick]++;
@@ -394,7 +394,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
                     }
                     self.table.answer.push(playerCards);
                     player.hasPlayed = true;
-                    player.inactiveRounds = 0;
+                    player.idled = false;
                     self.pm(player.nick, 'You played: ' + self.getFullEntry(self.table.question, playerCards.getCards()));
                     // show entries if all players have played
                     if (self.checkAllPlayed()) {
@@ -553,7 +553,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
             console.log('the czar is inactive, selecting winner');
             self.say('Time is up. I will pick the winner on this round.');
             // Check czar & remove player after 3 timeouts
-            self.czar.inactiveRounds++;
+            self.czar.idled = true;
             // select winner
             self.selectWinner(Math.round(Math.random() * (self.table.answer.length - 1)));
         } else if (roundElapsed >= timeLimit - (10 * 1000) && roundElapsed < timeLimit) {
@@ -756,7 +756,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
      */
     self.markInactivePlayers = function (options) {
         _.each(self.getNotPlayed(), function (player) {
-            player.inactiveRounds++;
+            player.idled = true;
         }, this);
     };
 
