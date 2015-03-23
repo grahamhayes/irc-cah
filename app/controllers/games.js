@@ -20,8 +20,8 @@ var Games = function Games() {
             user = message.user,
             hostname = message.host;
 
-        if (typeof self.game !== 'undefined') {
-            // game exists
+        if (typeof self.game !== 'undefined' && self.game.state !== Game.states.STOPPED) {
+            // game exists 
             client.say(channel, 'A game is already running. Type !join to join the game.');
         } else {
             // init game
@@ -145,7 +145,7 @@ var Games = function Games() {
             nick = message.nick,
             hostname = message.host;
 
-        if (typeof seelf.game === 'undefined') {
+        if (typeof self.game === 'undefined') {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
             var player = self.game.getPlayer({nick: nick, hostname: hostname});
