@@ -536,7 +536,6 @@ var Game = function Game(channel, client, config, cmdArgs) {
                 self.roundStarted = new Date();
                 self.winnerTimer = setInterval(self.winnerTimerCheck, 10 * 1000);
             }
-
         }
     };
 
@@ -845,7 +844,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
      */
     self.setTopic = function (topic) {
         // ignore if not configured to set topic
-        if (typeof config.gameOptions.setTopic === 'undefined' || !config.gameOptionssetTopic) {
+        if (typeof config.gameOptions.setTopic === 'undefined' || !config.gameOptions.setTopic) {
             return false;
         }
 
