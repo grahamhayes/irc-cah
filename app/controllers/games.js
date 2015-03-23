@@ -20,7 +20,7 @@ var Games = function Games() {
             user = message.user,
             hostname = message.host;
 
-        if (typeof self.game !== 'undefined' && self.game.state !== Game.states.STOPPED) {
+        if (typeof self.game !== 'undefined' && self.game.state !== Game.STATES.STOPPED) {
             // game exists
             client.say(channel, 'A game is already running. Type !join to join the game.');
         } else {
@@ -43,7 +43,7 @@ var Games = function Games() {
             nick = message.nick,
             hostname = message.host;
 
-        if (typeof self.game === 'undefined' || self.game.state === Game.states.STOPPED) {
+        if (typeof self.game === 'undefined' || self.game.state === Game.STATES.STOPPED) {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
             var player = self.game.getPlayer({nick: nick, hostname: hostname});
@@ -65,7 +65,7 @@ var Games = function Games() {
             nick = message.nick,
             hostname = message.host;
 
-        if (typeof self.game === 'undefined' || self.game.state === Game.states.STOPPED) {
+        if (typeof self.game === 'undefined' || self.game.state === Game.STATES.STOPPED) {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
             var player = self.game.getPlayer({nick: nick, hostname: hostname});
@@ -86,7 +86,7 @@ var Games = function Games() {
             nick = message.nick,
             hostname = message.host;
 
-        if (typeof self.game === 'undefined' || self.game.state === Game.states.STOPPED) {
+        if (typeof self.game === 'undefined' || self.game.state === Game.STATES.STOPPED) {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
             var player = self.game.getPlayer({nick: nick, hostname: hostname});
@@ -108,7 +108,7 @@ var Games = function Games() {
             user = message.user,
             hostname = message.host;
 
-        if (typeof self.game === 'undefined' || self.game.state === Game.states.STOPPED) {
+        if (typeof self.game === 'undefined' || self.game.state === Game.STATES.STOPPED) {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
             var player = new Player(nick, user, hostname);
@@ -127,7 +127,7 @@ var Games = function Games() {
             nick = message.nick,
             hostname = message.host;
 
-        if (typeof self.game === 'undefined' || self.game.state === Game.states.STOPPED) {
+        if (typeof self.game === 'undefined' || self.game.state === Game.STATES.STOPPED) {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
             self.game.removePlayer(self.game.getPlayer({nick: nick, hostname: hostname}));
@@ -145,7 +145,7 @@ var Games = function Games() {
             nick = message.nick,
             hostname = message.host;
 
-        if (typeof self.game === 'undefined' || self.game.state === Game.states.STOPPED) {
+        if (typeof self.game === 'undefined' || self.game.state === Game.STATES.STOPPED) {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
             var player = self.game.getPlayer({nick: nick, hostname: hostname});
@@ -165,7 +165,7 @@ var Games = function Games() {
             user = message.user,
             hostname = message.host;
 
-        if (typeof self.game === 'undefined' || self.game.state === Game.states.STOPPED) {
+        if (typeof self.game === 'undefined' || self.game.state === Game.STATES.STOPPED) {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
             var player = self.game.getPlayer({nick: nick, hostname: hostname});
@@ -184,7 +184,7 @@ var Games = function Games() {
     self.list = function (client, message, cmdArgs) {
         var channel = message.args[0];
 
-        if (typeof self.game === 'undefined' || self.game.state === Game.states.STOPPED) {
+        if (typeof self.game === 'undefined' || self.game.state === Game.STATES.STOPPED) {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
             self.game.listPlayers();
@@ -202,7 +202,7 @@ var Games = function Games() {
             nick = message.nick,
             hostname = message.host;
 
-        if (typeof self.game === 'undefined' || self.game.state === Game.states.STOPPED) {
+        if (typeof self.game === 'undefined' || self.game.state === Game.STATES.STOPPED) {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
             var player = self.game.getPlayer({nick: nick, hostname: hostname});
@@ -222,7 +222,7 @@ var Games = function Games() {
         var channel = message.args[0],
             hostname = message.host;
 
-        if (typeof self.game === 'undefined' || self.game.state === Game.states.STOPPED) {
+        if (typeof self.game === 'undefined' || self.game.state === Game.STATES.STOPPED) {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
             self.game.showPoints();
@@ -238,7 +238,7 @@ var Games = function Games() {
     self.status = function(client, message, cmdArgs) {
         var channel = message.args[0];
 
-        if (typeof self.game === 'undefined' || self.game.state === Game.states.STOPPED) {
+        if (typeof self.game === 'undefined' || self.game.state === Game.STATES.STOPPED) {
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
             self.game.showStatus();
@@ -251,7 +251,7 @@ var Games = function Games() {
             nick = message.nick,
             hostname = message.host;
 
-        if (typeof self.game === 'undefined' || self.game.state === Game.states.STOPPED){
+        if (typeof self.game === 'undefined' || self.game.state === Game.STATES.STOPPED){
             client.say(channel, 'No game running. Start the game by typing !start.');
         } else {
             var player = self.game.getPlayer({nick: nick, hostname: hostname});
@@ -273,7 +273,7 @@ var Games = function Games() {
             nick = message.nick,
             hostname = message.host;
 
-        if (typeof self.game === 'undefined' || self.game.state === Game.states.STOPPED) {
+        if (typeof self.game === 'undefined' || self.game.state === Game.STATES.STOPPED) {
             client.say(channel, 'No game running. Start the game by typing !start');
         } else {
             var player = self.game.getPlayer({nick: nick, hostname: hostname});
