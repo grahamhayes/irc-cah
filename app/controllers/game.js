@@ -790,7 +790,7 @@ var Game = function Game(channel, client, config, cmdArgs) {
         });
         var output = '';
         _.each(sortedPlayers, function (point) {
-            output += point.player.nick + ' ' + point.points + ' awesome ' + inflection.inflect('point', point.points) + ', ';
+            output += point.player.nick + ' ' + point.player.points + ' awesome ' + inflection.inflect('point', point.player.points) + ', ';
         });
         self.say('The most horrible people: ' + output.slice(0, -2));
     };
