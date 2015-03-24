@@ -788,13 +788,9 @@ var Game = function Game(channel, client, config, cmdArgs) {
         var sortedPlayers = _.sortBy(self.points, function (point) {
             return -point.player.points;
         });
-        var output = "";
+        var output = '';
         _.each(sortedPlayers, function (point) {
-            if (point.points !== 1) {
-                output += point.player.nick + " " + point.points + " awesome points, ";
-            } else {
-                output += point.player.nick + " " + point.points + " awesome point, ";
-            }
+            output += point.player.nick + ' ' + point.points + ' awesome ' + inflection.inflect('point', point.points) + ', ';
         });
         self.say('The most horrible people: ' + output.slice(0, -2));
     };
