@@ -1,5 +1,16 @@
+#0.8.0
+* Added !discard command
+* Added Not Safe For Humanity expansion
+* Players are now referenced by nick instead of by user
+* Players can now use the p, pick, and play aliases in private message windows
+* Added work around for issue where cards can get clipped if they go over the split message limit
+* Fixed an issue where negative time until the start of the game can be displayed when !status is used
+* Reorganised config file into logical blocks
+* Removed ability to run games in multiple channels
+* Various typo and duplicate fixes
+
 #0.7.0
-* Added various extra card packs 
+* Added various extra card packs
 * Bot now waits for a minute before starting a round
 * Rounds now last 6 minutes
 * Added !p and !j aliases
